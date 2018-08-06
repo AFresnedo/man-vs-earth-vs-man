@@ -6,3 +6,6 @@ game.state.add('load', loadState);
 game.state.add('menu', menuState);
 game.state.add('play', playState);
 game.state.add('win', winState);
+
+// begin boot state (boot is start of daisy chain)
+game.state.start('boot')

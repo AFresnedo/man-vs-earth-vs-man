@@ -97,6 +97,9 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
         * parachutes, big unwieldy explosions
 * probably first thing to implement after MVP
 
+## Sounds
+* wilheim scream for falling tank
+
 # Implementation
 ## Game Mechanics
 ## UX
@@ -112,3 +115,5 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 # Developer Notes
 * phaser has a bounce
 * phaser has a drag
+* can we pass objs as parameters through states?
+    * if players choose settings in menu, how do i get them to the game?
