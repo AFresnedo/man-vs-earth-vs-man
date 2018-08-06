@@ -5,7 +5,11 @@
 
 class Tracer {}
 
-class Standard {}
+class Standard {
+  this.weight = 100;
+  this.power = 100;
+  this.cost = 1;
+}
 
 class Chain {}
 
