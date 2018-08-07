@@ -1,6 +1,7 @@
 var menuState = {
 
   create: function() {
+    background = game.add.sprite(0, 0, 'sky');
 
     // TODO replace this with actual welcome screen/msg
     var greeetingMsg = "welcome!";

@@ -12,7 +12,8 @@ var loadState = {
   create: function() {
     console.log('reached create: in loadState');
     // display background
-    game.add.sprite(0, 0, 'sky');
+    background = game.add.sprite(0, 0, 'sky');
+    var player = game.add.sprite(0, 0, 'dude');
     // pull up the menu
     game.state.start('menu');
   }

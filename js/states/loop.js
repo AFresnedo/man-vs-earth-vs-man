@@ -1,4 +1,5 @@
 // TODO move to "win" state when <=1 tank remains
-var loopState = function() {
+var loopState = {
   // TODO you know, everything?
+  create: function() {}
 }
