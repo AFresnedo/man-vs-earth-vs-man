@@ -21,25 +21,30 @@ function create() {
   // start physics
   game.physics.startSystem(Phaser.Physics.ARCADE);
   // display background
-  game.add.sprite(0, 0, 'bg');
+  // TODO moving clouds
+  background = game.add.sprite(0, 0, 'bg');
 
-  //  The platforms group contains the ground and the 2 ledges we can jump on
+  // TODO create destructable earth
+  //  create floating terrain group
+  var platforms;
   platforms = game.add.group();
 
   //  We will enable physics for any object that is created in this group
   platforms.enableBody = true;
 
-  // Here we create the ground.
-  var ground = platforms.create(0, game.world.height - 64, 'ground');
+  // create solid ground
+  var ground;
+  ground = game.add.sprite(0, game.world.height - 64, 'ground');
+  ground.enableBody = true;
 
-  //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
+  // scale ground sprite to screen width
   ground.scale.setTo(2, 2);
 
-  //  This stops it from falling away when you jump on it
+  // prevent falling through solid ground
   ground.body.immovable = true;
 
-  //  Now let's create two ledges
-  var ledge = platforms.create(400, 400, 'ground');
+  // create combat ledges
+  ledge = platforms.create(400, 400, 'ground');
 
   ledge.body.immovable = true;
 
