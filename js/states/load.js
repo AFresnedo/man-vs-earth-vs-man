@@ -1,10 +1,12 @@
 var loadState = {
   // Phaser standard function, called before create
   preload: function() {
-    // TODO load assets, atm for all states
-    game.load.image('sky', 'phaser_tut/assets/sky.png');
-    game.load.image('ground', 'phaser_tut/assets/platform.png');
-    game.load.image('star', 'phaser_tut/assets/star.png');
+    // load temp assets for menu
+    game.load.image('menuBG', 'phaser_tut/assets/sky.png');
+
+    // load temporary assets for loop
+    game.load.image('sky', '../assets/tilesetOpenGameBackground_3.png');
+    game.load.image('terrain', '../assets/Ice Plains.png');
     game.load.spritesheet('dude', 'phaser_tut/assets/dude.png', 32, 48);
   },
 

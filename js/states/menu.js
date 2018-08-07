@@ -2,7 +2,7 @@ var menuState = {
 
   create: function() {
     // display sky background, TODO repalce with menu bg
-    background = game.add.sprite(0, 0, 'sky');
+    background = game.add.sprite(0, 0, 'menuBG');
 
     // TODO display a nice message and show menu
     var greetingMsg = "welcome to the prototype menu!";

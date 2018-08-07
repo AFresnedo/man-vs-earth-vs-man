@@ -101,6 +101,9 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * wilheim scream for falling tank
 
 # Implementation
+## Terrain / Game World
+* use a tile map
+    * each tile is an object
 ## Game Mechanics
 ## UX
 ## Player Objects
