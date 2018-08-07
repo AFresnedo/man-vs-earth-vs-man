@@ -8,12 +8,8 @@ var loadState = {
     game.load.spritesheet('dude', 'phaser_tut/assets/dude.png', 32, 48);
   },
 
-  // objects you want to display behind menu go here
+  // there is nothing to display in load
   create: function() {
-    console.log('reached create: in loadState');
-    // display background
-    background = game.add.sprite(0, 0, 'sky');
-    var player = game.add.sprite(0, 0, 'dude');
     // pull up the menu
     game.state.start('menu');
   }

@@ -1,5 +1,5 @@
 console.log('reached main');
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameScreen');
+var game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, 'gameScreen');
 
 // define game states, first arg being new handle
 game.state.add('boot', bootState);
