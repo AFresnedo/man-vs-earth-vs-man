@@ -1,12 +1,18 @@
 console.log('reached main');
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameScreen');
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameScreen', {
+  init: init,
+  preload: preload,
+  create: create,
+  update: update
+});
 
-// define game states, first arg being new handle
-game.state.add('boot', bootState);
-game.state.add('load', loadState);
-game.state.add('menu', menuState);
-game.state.add('loop', loopState);
-game.state.add('end', endState);
+function init() {
+  console.log('init reached');
+}
 
-// begin boot state (boot is start of daisy chain)
-game.state.start('boot');
+function preload() {
+  console.log('preload reached');
+  game.physics.startSystem(Phaser.Physics.ARCADE);
+
+  game.load.image('background', '
+}
