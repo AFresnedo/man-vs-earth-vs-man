@@ -1,8 +1,12 @@
 /* This script contains game-wide constants and variables shared between
  * states.
  */
+// constants
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
+// variables
+// TODO replace with players.length
+var playerCount = 2;
 
 // TODO credit art
 

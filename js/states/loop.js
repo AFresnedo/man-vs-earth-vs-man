@@ -6,8 +6,9 @@ var loopState = {
 
     console.log('loop create reached!');
     // display sky/background
-    var background = game.add.tileSprite(0, 0, game.width, game.height, 'sky');
-    background.autoScroll(-19, 0);
+    var background = game.add.sprite(0, 0, 'sky');
+    background.scale.x = 2.5;
+    background.scale.y = 2.5;
 
     //
     // create terrain
@@ -20,8 +21,14 @@ var loopState = {
     //
     // spawn units
     //
-    // for amount of units selected, atm just 1
+    var units = game.add.group;
+    units.enableBody = true;
+    units.setAll('outOfBoundsKill', true);
+    units.setAll('checkWorldBounds', true);
+    // TODO call spawnUnits
+    // display all units
     var unitOne = game.add.sprite(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'dude');
+
 
     // TODO move to "win" state when <=1 tank remains
   }

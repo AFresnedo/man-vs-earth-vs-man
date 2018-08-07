@@ -3,6 +3,9 @@
 man-vs-earth-vs-man is an artillery game based on scorched earth.
 
 # Design
+## Score
+* 1 point per kill
+* +1 point per direct hit
 ## Camera
 * section view
 *   in construction, looking at the slice of a building
@@ -120,3 +123,9 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * phaser has a drag
 * can we pass objs as parameters through states?
     * if players choose settings in menu, how do i get them to the game?
+        * a global makes the most sense atm
+* using units = game.add.group
+    * i assign particular player objects in "spawnUnits"
+    * player objects can just be a reference in a "unit" of "units"
+    * i am considering not using game.add.group for units
+        * i would have some "set phaser properties" func to set each p's unit
