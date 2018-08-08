@@ -3,7 +3,7 @@
  "layers":[
         {
          "id":4,
-         "image":"..\/..\/..\/..\/..\/Downloads\/evening-dark-clouds-sky-luna-cloud-11373.jpg",
+         "image":"bg.jpg",
          "name":"Background",
          "offsetx":0,
          "offsety":-32,
@@ -35,6 +35,10 @@
         {
          "firstgid":1,
          "source":"..\/..\/..\/..\/..\/Tiled\/tiles\/_epischspel__tiles_pixel_art_by_tdeleeuw-d8o3k8f.tsx"
+        }, 
+        {
+         "firstgid":1,
+         "source":"earth_tileset.json"
         }],
  "tilewidth":32,
  "type":"map",

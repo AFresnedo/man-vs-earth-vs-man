@@ -12,8 +12,9 @@ var loadState = {
     // load tilemap
     game.load.tilemap('earth', '../assets/first.json');
     // load tileset
-    game.load.image('earthTile', '../assets/earth_tilemap.json');
-    // TODO load image?
+    game.load.image('earthTile', '../assets/earth_tileset.png');
+    // load background layer
+    game.load.image('bg', '../assets/bg.jpg');
   },
 
   // there is nothing to display in load

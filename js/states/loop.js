@@ -14,6 +14,11 @@ var loopState = {
     // create terrain
     //
     // display terrain
+    var map;
+    var layer;
+    map = game.add.tilemap('earth');
+    map.addTilesetImage('Background', 'bg');
+    map.addTilesetImage('Ground', 'earthTile');
 
     //
     // spawn units
