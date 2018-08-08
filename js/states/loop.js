@@ -1,25 +1,31 @@
 var loopState = {
+  preload: function() {
+    // // load background layer
+    // game.load.image('bg', '../assets/bg.jpg');
+    // load tileset
+    game.load.image('earthTile', '../assets/earth_tileset.png');
+    // // load background layer
+    // game.load.image('bg', '../assets/bg.jpg');
+    // load tilemap
+    game.load.tilemap('earth',
+        '../assets/second pass/single-level-one.json',
+        null, Phaser.Tilemap.TILED_JSON);
+  },
   create: function() {
     // TODO determine if players must be global
     // create players array
     var players = [];
 
     console.log('loop create reached!');
-    // display sky/background
-    var background = game.add.sprite(0, 0, 'sky');
-    background.scale.x = 2.5;
-    background.scale.y = 2.5;
 
     //
     // create terrain
     //
-    // display terrain
     var map;
     var layer;
     map = game.add.tilemap('earth');
-    map.addTilesetImage('Background', 'bg');
-    map.addTilesetImage('Ground', 'earthTile');
-    layer = map.createLayer('Ground');
+    map.addTilesetImage('ground_tiles', 'earthTile');
+    layer = map.createLayer('Tile Layer 1');
     layer.resizeWorld();
 
     //
@@ -36,4 +42,4 @@ var loopState = {
 
     // TODO move to "win" state when <=1 tank remains
   }
-}
+};
