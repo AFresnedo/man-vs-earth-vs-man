@@ -14,9 +14,6 @@ var loopState = {
     // create terrain
     //
     // display terrain
-    var terrain = game.add.sprite(0, GAME_HEIGHT / 2, 'terrain');
-    terrain.scale.x = 0.5;
-    terrain.scale.y = 0.5;
 
     //
     // spawn units

@@ -26,6 +26,7 @@ var menuState = {
   // start is a non-standard method, in this case it begins loop
   start: function() {
     console.log('reached start');
+    // TODO break game when playerCount.value is not 2-8
     console.log('player count is', playerCount.value);
     game.state.start('loop');
   }

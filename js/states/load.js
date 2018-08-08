@@ -8,6 +8,12 @@ var loadState = {
     game.load.image('sky', '../assets/tilesetOpenGameBackground_3.png');
     game.load.image('terrain', '../assets/Ice Plains.png');
     game.load.spritesheet('dude', 'phaser_tut/assets/dude.png', 32, 48);
+
+    // load tilemap
+    game.load.tilemap('earth', '../assets/first.json');
+    // load tileset
+    game.load.image('earthTile', '../assets/earth_tilemap.json');
+    // TODO load image?
   },
 
   // there is nothing to display in load
