@@ -167,3 +167,5 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * player objects can just be a reference in a "unit" of "units"
     * i am considering not using game.add.group for units
         * i would have some "set phaser properties" func to set each p's unit
+* map.removeTile for destructable terrain
+    * it may do nothing, so set it to alpha 0 and remove collision instead

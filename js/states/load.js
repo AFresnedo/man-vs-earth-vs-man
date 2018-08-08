@@ -5,7 +5,8 @@ var loadState = {
     game.load.image('menuBG', 'phaser_tut/assets/sky.png');
 
     // load sprite for loop
-    game.load.spritesheet('dude', 'phaser_tut/assets/dude.png', 32, 48);
+    game.load.spritesheet('tank',
+        '../assets/second pass/tank-spritesheet.png', 32, 32);
 
   },
 
