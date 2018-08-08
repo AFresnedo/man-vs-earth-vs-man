@@ -14,4 +14,4 @@ class Player {
     this.inventory = inventory;
     this.score = score;
   }
-}
+};
