@@ -25,6 +25,7 @@ var loopState = {
 
     // make sure each unit has collision detection
     players.forEach(unit) {
+      var landGround = game.physics.arcade.collide(unit, this.layer);
     }
 
   }
