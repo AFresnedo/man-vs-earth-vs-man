@@ -165,6 +165,9 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * color
     * inventoryObj
     * score
+## Ammo
+
+* each unit has their own ammo obj for each ammo type
 
 # Developer Notes
 

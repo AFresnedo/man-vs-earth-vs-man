@@ -16,6 +16,7 @@ class Inventory {
     this.utilityList = utilityList;
   }
 };
+
 class Player {
   constructor(name, score, inventory, unit) {
     // primitives
