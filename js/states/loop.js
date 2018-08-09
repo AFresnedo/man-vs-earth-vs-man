@@ -41,6 +41,8 @@ var loopState = {
   },
 
   update: function() {
+    // scope
+    var currentUnit = players[gameTurn];
     // check ground and tank collisions
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer);
@@ -51,13 +53,23 @@ var loopState = {
       turnTime = game.time.now + 500;
       gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('turn updated to', gameTurn);
+      currentUnit.animations.play('moveTurret');
+      currentUnit.animations.paused = true;
     }
 
-    if (leftKey.isDown && (game.time.now > turretTime)) {
+    if (rightKey.isDown && (game.time.now > turretTime)) {
+      console.log('moving turret');
       turretTime = game.time.now + 250;
       // players[gameTurn] points to the current player's unit, atm
       // TODO update players[gameTurn] for player object
-      players[gameTurn].animations.play('turretLeft');
+      currentUnit.animations.next();
+      // console.log('moving turret from', players[gameTurn]._frame.index);
+      // players[gameTurn].frame = 0;
+      // // moveTurret(players[gameTurn], -1);
+      // console.log('moving turret to', players[gameTurn]._frame.index);
+    }
+    else if (spaceKey.isDown) {
+      console.log('pausing animation');
     }
   }
 
