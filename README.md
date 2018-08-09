@@ -154,8 +154,6 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * enter key
 * use inventory / fire weapon
     * spacebar
-* end turn
-    * fire non-tracer
 
 ## Player Objects
 

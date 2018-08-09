@@ -5,10 +5,10 @@ var loopState = {
     // user input
     //
     arrowKeys = game.input.keyboard.createCursorKeys();
+    game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR,
+        Phaser.Keyboard.ENTER]);
 
     console.log('loopState: create reached!');
-    gameTurn = 0;
-    console.log('turn:', gameTurn);
 
     //
     // create terrain
@@ -30,6 +30,10 @@ var loopState = {
     // TODO spawn units during flyby intro (hence function, for callback)
     spawnUnits();
 
+    // TODO start game "paused", makes coding player turns in update easier
+    gameTurn = 0;
+    console.log('turn:', gameTurn);
+
 
     // TODO move to "win" state when <=1 tank remains
   },
@@ -39,8 +43,12 @@ var loopState = {
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer);
     });
-  }
 
-  // TODO update next turn
+    // TODO update next turn
+    if (game.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
+      gameTurn++;
+      console.log('turn updated to', gameTurn);
+    }
+  }
 
 };
