@@ -9,7 +9,7 @@ var loopState = {
     var map = game.add.tilemap('earth');
     map.addTilesetImage('ground_tiles', 'earthTile');
     layer = map.createLayer('Tile Layer 1');
-    map.setCollisionBetween(0, (20 * 24));
+    map.setCollisionBetween(0, TILES_WIDE * TILES_HIGH);
 
     //
     // spawn units
@@ -20,7 +20,7 @@ var loopState = {
     units.createMultiple(playerCount.value, 'tank');
     units.setAll('outOfBoundsKill', true);
     units.setAll('checkWorldBounds', true);
-    // TODO spawn units during flyby intro
+    // TODO spawn units during flyby intro (hence function, for callback)
     spawnUnits();
 
 
@@ -28,6 +28,7 @@ var loopState = {
   },
 
   update: function() {
+    // check ground and tank collisions
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer);
     });
