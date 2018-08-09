@@ -180,3 +180,7 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
         * i would have some "set phaser properties" func to set each p's unit
 * map.removeTile for destructable terrain
     * it may do nothing, so set it to alpha 0 and remove collision instead
+* for moving the turret...
+    * do i make a function that takes a direction and a current position
+        * and then it adjusts the animation frame accordingly?
+        * does phaser provide this functionality under some name?
