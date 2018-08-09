@@ -8,6 +8,8 @@ const GAME_HEIGHT = 600;
 // TODO replace with players.length
 var playerCount = 2;
 var players = [];
+var units;
+var layer;
 
 // TODO credit art
 //"[asset name]" by [author name] licensed [license(s)]: [asset url]

@@ -8,12 +8,18 @@ var loopState = {
     //
     var map = game.add.tilemap('earth');
     map.addTilesetImage('ground_tiles', 'earthTile');
-    var layer = map.createLayer('Tile Layer 1');
-    map.setCollisionByExclusion([], true, layer);
+    layer = map.createLayer('Tile Layer 1');
+    map.setCollisionBetween(0, (20 * 24));
 
     //
     // spawn units
     //
+    units = game.add.group();
+    units.enableBody = true;
+    units.physicsBodyType = Phaser.Physics.ARCADE;
+    units.createMultiple(playerCount.value, 'tank');
+    units.setAll('outOfBoundsKill', true);
+    units.setAll('checkWorldBounds', true);
     // TODO spawn units during flyby intro
     spawnUnits();
 
@@ -22,12 +28,9 @@ var loopState = {
   },
 
   update: function() {
-
-    // make sure each unit has collision detection
-    players.forEach(unit) {
-      var landGround = game.physics.arcade.collide(unit, this.layer);
-    }
-
+    units.forEach(function(unit) {
+      game.physics.arcade.collide(unit, layer);
+    });
   }
 
 };
