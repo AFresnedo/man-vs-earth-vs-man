@@ -1,7 +1,14 @@
 var loopState = {
   create: function() {
 
+    //
+    // user input
+    //
+    arrowKeys = game.input.keyboard.createCursorKeys();
+
     console.log('loopState: create reached!');
+    gameTurn = 0;
+    console.log('turn:', gameTurn);
 
     //
     // create terrain
@@ -33,5 +40,7 @@ var loopState = {
       game.physics.arcade.collide(unit, layer);
     });
   }
+
+  // TODO update next turn
 
 };

@@ -7,11 +7,11 @@ const GAME_HEIGHT = 600;
 const TILES_WIDE = 24;
 const TILES_HIGH = 20;
 // variables
-// TODO replace with players.length
 var playerCount = 2;
 var players = [];
 var units;
 var layer;
+var gameTurn;
 
 // TODO credit art
 //"[asset name]" by [author name] licensed [license(s)]: [asset url]

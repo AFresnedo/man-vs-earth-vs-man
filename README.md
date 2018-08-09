@@ -144,6 +144,19 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 
 ## UX
 
+### Tank Controls
+
+* turret movement
+    * left/right arrow keys
+* inventory scroll
+    * up/down arrow keys
+* inventory select
+    * enter key
+* use inventory / fire weapon
+    * spacebar
+* end turn
+    * fire non-tracer
+
 ## Player Objects
 
 ## Game Loop
