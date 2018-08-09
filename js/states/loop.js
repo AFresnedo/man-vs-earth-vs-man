@@ -52,6 +52,13 @@ var loopState = {
       gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('turn updated to', gameTurn);
     }
+
+    if (leftKey.isDown && (game.time.now > turretTime)) {
+      turretTime = game.time.now + 250;
+      // players[gameTurn] points to the current player's unit, atm
+      // TODO update players[gameTurn] for player object
+      players[gameTurn].animations.play('turretLeft');
+    }
   }
 
 };

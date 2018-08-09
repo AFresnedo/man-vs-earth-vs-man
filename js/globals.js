@@ -9,6 +9,7 @@ const TILES_HIGH = 20;
 // game logic
 var gameTurn = 0;
 var turnTime = 0;
+var turretTime = 0;
 // assets
 var layer;
 var map;
