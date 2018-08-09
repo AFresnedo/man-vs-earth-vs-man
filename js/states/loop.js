@@ -4,9 +4,12 @@ var loopState = {
     //
     // user input
     //
-    arrowKeys = game.input.keyboard.createCursorKeys();
-    game.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR,
-        Phaser.Keyboard.ENTER]);
+    leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+    rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+    upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+    enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+    spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     console.log('loopState: create reached!');
 
@@ -31,8 +34,7 @@ var loopState = {
     spawnUnits();
 
     // TODO start game "paused", makes coding player turns in update easier
-    gameTurn = 0;
-    console.log('turn:', gameTurn);
+    console.log('begin turn:', gameTurn);
 
 
     // TODO move to "win" state when <=1 tank remains
@@ -44,9 +46,10 @@ var loopState = {
       game.physics.arcade.collide(unit, layer);
     });
 
-    // TODO update next turn
-    if (game.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
-      gameTurn++;
+    // TODO update next turn to use real game logic
+    if (enterKey.isDown && (game.time.now > turnTime)) {
+      turnTime = game.time.now + 500;
+      gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('turn updated to', gameTurn);
     }
   }
