@@ -52,7 +52,7 @@ var loopState = {
     standardShot = game.add.weapon(playerCount.value, 'bullet');
     // TODO test if bulletGravity exists, otherwise can't talk to .y
     // standardShot.bulletGravity.y = 5;
-    standardShot.bulletSpeed = -20;
+    standardShot.bulletSpeed = -50;
 
     // TODO is body required for gravity?
 
@@ -78,14 +78,24 @@ var loopState = {
 
     else if (rightKey.isDown && (game.time.now > turretTime)) {
       // TODO angle max check
-      firingAngle[gameTurn] += 18;
+      if (firingAngle[gameTurn] >= 180) {
+        console.log('turret already max right');
+      }
+      else {
+        firingAngle[gameTurn] += 18;
+      }
       console.log('updating angle to', firingAngle[gameTurn]);
       turretTime = game.time.now + 250;
       currentUnit.animations.next();
     }
     else if (leftKey.isDown && (game.time.now > turretTime)) {
       // TODO angle min check
-      firingAngle[gameTurn] -= 18;
+      if (firingAngle[gameTurn] <= 0) {
+        console.log('turret already max left');
+      }
+      else {
+        firingAngle[gameTurn] -= 18;
+      }
       console.log('updating angle to', firingAngle[gameTurn]);
       turretTime = game.time.now + 250;
       turretTime = game.time.now + 250;
