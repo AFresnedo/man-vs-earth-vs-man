@@ -5,6 +5,12 @@ var loopState = {
   },
 
   create: function() {
+    console.log('loopState: create reached!');
+
+    // init firingAngle
+    for (var i = 0; i < playerCount.value; i++) {
+      firingAngle.push(0);
+    }
 
     //
     // user input
@@ -16,7 +22,6 @@ var loopState = {
     enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
     spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-    console.log('loopState: create reached!');
 
     //
     // create terrain
@@ -45,6 +50,10 @@ var loopState = {
     // create weapons/ammo
     //
     standardShot = game.add.weapon(playerCount.value, 'bullet');
+    // TODO test if bulletGravity exists, otherwise can't talk to .y
+    // standardShot.bulletGravity.y = 5;
+    standardShot.bulletSpeed = -20;
+
     // TODO is body required for gravity?
 
 
@@ -68,17 +77,35 @@ var loopState = {
     }
 
     else if (rightKey.isDown && (game.time.now > turretTime)) {
+      // TODO angle max check
+      firingAngle[gameTurn] += 18;
+      console.log('updating angle to', firingAngle[gameTurn]);
       turretTime = game.time.now + 250;
       currentUnit.animations.next();
     }
     else if (leftKey.isDown && (game.time.now > turretTime)) {
+      // TODO angle min check
+      firingAngle[gameTurn] -= 18;
+      console.log('updating angle to', firingAngle[gameTurn]);
+      turretTime = game.time.now + 250;
       turretTime = game.time.now + 250;
       currentUnit.animations.previous();
     }
     else if (spaceKey.isDown && (game.time.now > fireTime)) {
+      // update cooldown
       fireTime = game.time.now + 500;
-      gameTurn = (gameTurn + 1) % playerCount.value;
+      // set angle
+      // gameTurn, as the index, is used to separate each player's angle
+      console.log('fire angle is', firingAngle[gameTurn]);
+      standardShot.fireAngle = firingAngle[gameTurn];
+      // set bullet properties for current tank
+      var pos = new Phaser.Rectangle(currentUnit.x, currentUnit.y);
+      standardShot.fireFrom = pos;
+      console.log('fire from', pos);
       console.log('firing!');
+      standardShot.fire()
+      // go to next turn
+      gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('turn updated to', gameTurn);
     }
   }
