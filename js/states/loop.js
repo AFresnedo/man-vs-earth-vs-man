@@ -64,6 +64,11 @@ var loopState = {
   update: function() {
     // setup turret movement animation
     currentUnit = players[gameTurn];
+    // skip turn if tank is dead
+    if (!(currentUnit.dead === undefined || currentUnit.dead == false)) {
+      gameTurn += 1;
+      return;
+    }
     currentUnit.animations.play('moveTurret');
     currentUnit.animations.paused = true;
     // check ground and tank collisions

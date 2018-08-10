@@ -29,6 +29,8 @@ function directHit(shell, unit) {
   else {
     console.log('direct hit detected');
     shell.kill();
+    // kill unit
+    unit.dead = true;
     unit.kill();
   }
   // shell.kill();
