@@ -14,7 +14,7 @@ var turretTime = 0;
 var layer;
 var map;
 // player info
-var playerCount = 2;
+var playerCount;
 var players = [];
 // game objects
 var units;

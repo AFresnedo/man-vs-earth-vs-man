@@ -187,3 +187,5 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * do i make a function that takes a direction and a current position
         * and then it adjusts the animation frame accordingly?
         * does phaser provide this functionality under some name?
+* lock spacebar to game (prevent propogatgion or whatever)
+* weirdly enough i think i should have inventory usage ingame & the shop out
