@@ -14,7 +14,6 @@ var loadState = {
     game.load.tilemap('earth',
         '../assets/second pass/single-level-one.json',
         null, Phaser.Tilemap.TILED_JSON);
-
   },
 
   // there is nothing to display in load

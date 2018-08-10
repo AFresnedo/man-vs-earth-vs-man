@@ -19,6 +19,7 @@ var playerCount;
 var players = [];
 // game objects
 var units;
+var standardShot;
 // input
 var leftKey;
 var rightKey;

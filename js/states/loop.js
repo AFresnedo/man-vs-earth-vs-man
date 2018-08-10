@@ -1,4 +1,9 @@
 var loopState = {
+  preload: function() {
+    // TODO load real bullet sprite
+    game.load.image('bullet', '../assets/temp/missile.png');
+  },
+
   create: function() {
 
     //
@@ -35,6 +40,13 @@ var loopState = {
 
     // TODO start game "paused", makes coding player turns in update easier
     console.log('begin turn:', gameTurn);
+
+    //
+    // create weapons/ammo
+    //
+    standardShot = game.add.weapon(playerCount.value, 'bullet');
+    // TODO is body required for gravity?
+
 
 
     // TODO move to "win" state when <=1 tank remains
