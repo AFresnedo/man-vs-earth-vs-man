@@ -192,6 +192,3 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * be careful of shooter being updated
     * if "next player" shoots before the last missile
     * inject shooter identity into attack possible fix
-* dead shooter bug
-    * "killed" unit needs to be cleanly removed from turn order
-        * gameTurn hack needs to be replaced
