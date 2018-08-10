@@ -1,7 +1,7 @@
 var loopState = {
   preload: function() {
     // TODO load real bullet sprite
-    game.load.image('bullet', './assets/temp/missile.png');
+    game.load.image('bullet', './assets/second-pass/missile.png');
   },
 
   create: function() {
