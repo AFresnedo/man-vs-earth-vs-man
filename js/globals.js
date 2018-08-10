@@ -23,6 +23,7 @@ var firingAngle = [];
 var units;
 var standardShot;
 var currentUnit;
+var shooter;
 // input
 var leftKey;
 var rightKey;

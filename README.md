@@ -189,3 +189,6 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
         * does phaser provide this functionality under some name?
 * lock spacebar to game (prevent propogatgion or whatever)
 * weirdly enough i think i should have inventory usage ingame & the shop out
+* be careful of shooter being updated
+    * if "next player" shoots before the last missile
+    * inject shooter identity into attack possible fix

@@ -51,7 +51,7 @@ var loopState = {
     //
     standardShot = game.add.weapon(playerCount.value, 'bullet');
     // TODO test if bulletGravity exists, otherwise can't talk to .y
-    // standardShot.bulletGravity.y = 5;
+    standardShot.bulletGravity.y = 15;
     standardShot.bulletSpeed = -50;
 
     // TODO is body required for gravity?
@@ -102,6 +102,8 @@ var loopState = {
       currentUnit.animations.previous();
     }
     else if (spaceKey.isDown && (game.time.now > fireTime)) {
+      // store shooter before gameTurn changes
+      shooter = currentUnit;
       // update cooldown
       fireTime = game.time.now + 500;
       // set angle
