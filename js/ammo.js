@@ -23,9 +23,10 @@ function StandardShot(weight = 100, explSize = 32, power = 100, cost = 0) {
 // bullet and unit are the objs overlapping
 // type is the type of ammo used
 function directHit(shell, unit) {
-  console.log('direct hit detected between', shell, unit);
-  console.log('currentUnit is', currentUnit);
+  debugger;
+  console.log('shell is', shell);
   console.log('unit is', unit);
+  console.log('currentUnit is', currentUnit);
   // shell.kill();
   // unit.kill();
 }
