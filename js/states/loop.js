@@ -77,7 +77,7 @@ var loopState = {
     }
 
     else if (rightKey.isDown && (game.time.now > turretTime)) {
-      // TODO angle max check
+      // increase angle unless it's maxed out
       if (firingAngle[gameTurn] >= 180) {
         console.log('turret already max right');
       }
@@ -89,7 +89,7 @@ var loopState = {
       currentUnit.animations.next();
     }
     else if (leftKey.isDown && (game.time.now > turretTime)) {
-      // TODO angle min check
+      // reduce angle unless it's already at 0
       if (firingAngle[gameTurn] <= 0) {
         console.log('turret already max left');
       }
@@ -108,16 +108,23 @@ var loopState = {
       // gameTurn, as the index, is used to separate each player's angle
       console.log('fire angle is', firingAngle[gameTurn]);
       standardShot.fireAngle = firingAngle[gameTurn];
-      // set bullet properties for current tank
+      // set bullet origin point
       var pos = new Phaser.Rectangle(currentUnit.x, currentUnit.y);
       standardShot.fireFrom = pos;
       console.log('fire from', pos);
-      console.log('firing!');
+      // fire!
+      console.log('fuego!');
       standardShot.fire()
       // go to next turn
       gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('turn updated to', gameTurn);
     }
+
+    ///
+    /// bullet/bomb collision
+    ///
+    game.physics.arcade.overlap(standardShot, units, directHit);
+
   }
 
 };
