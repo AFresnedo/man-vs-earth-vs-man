@@ -123,7 +123,7 @@ var loopState = {
     ///
     /// bullet/bomb collision
     ///
-    game.physics.arcade.overlap(standardShot, units, directHit);
+    game.physics.arcade.overlap(standardShot.bullets, units, directHit);
 
   }
 
