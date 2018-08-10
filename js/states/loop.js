@@ -53,8 +53,6 @@ var loopState = {
     // TODO update next turn to use real game logic
     if (enterKey.isDown && (game.time.now > turnTime)) {
       turnTime = game.time.now + 500;
-      gameTurn = (gameTurn + 1) % playerCount.value;
-      console.log('turn updated to', gameTurn);
     }
 
     else if (rightKey.isDown && (game.time.now > turretTime)) {
@@ -65,8 +63,11 @@ var loopState = {
       turretTime = game.time.now + 250;
       currentUnit.animations.previous();
     }
-    else if (spaceKey.isDown) {
+    else if (spaceKey.isDown && (game.time.now > fireTime)) {
+      fireTime = game.time.now + 500;
+      gameTurn = (gameTurn + 1) % playerCount.value;
       console.log('firing!');
+      console.log('turn updated to', gameTurn);
     }
   }
 
