@@ -63,7 +63,7 @@ var loopState = {
 
   update: function() {
     // setup turret movement animation
-    var currentUnit = players[gameTurn];
+    currentUnit = players[gameTurn];
     currentUnit.animations.play('moveTurret');
     currentUnit.animations.paused = true;
     // check ground and tank collisions
