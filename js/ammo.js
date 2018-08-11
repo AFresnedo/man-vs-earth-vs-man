@@ -23,24 +23,17 @@ function StandardShot(weight = 100, explSize = 32, power = 100, cost = 0) {
 // bullet and unit are the objs overlapping
 // type is the type of ammo used
 function directHit(shell, unit) {
-  if (unit === shooter) {
+  if (unit === shooter.unit) {
     console.log('suicide avoided');
   }
   else {
-    if (shooter.score) {
-      shooter.score += 1;
-    }
-    else {
-      shooter.score = 1;
-    }
+    shooter.score += 1;
+  {
     console.log('direct hit detected');
     shell.kill();
     // kill unit
     unit.dead = true;
     unit.kill();
-    playersLeft--;
     console.log('playersLeft is', playersLeft);
   }
-  // shell.kill();
-  // unit.kill();
 }

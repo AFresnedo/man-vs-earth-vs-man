@@ -17,13 +17,9 @@ var map;
 // player info
 var playerCount;
 var players = [];
-var playersLeft;
-// firingAngle holds the current angle of each player's tank
-var firingAngle = [];
 // game objects
 var units;
 var standardShot;
-var currentUnit;
 var shooter;
 // input
 var leftKey;
