@@ -15,11 +15,12 @@ function Inventory(money, tracers, ammoList, utilityList) {
     this.utilityList = utilityList;
 }
 
-function Player(name, score, inventory, unit) {
+function Player(name, score, inventory, unit, angle) {
     // primitives
     this.name = name;
     this.score = score;
     // objects
     this.inventory = inventory;
     this.unit = unit;
+    this.angle = angle;
 }

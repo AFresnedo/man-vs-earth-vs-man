@@ -35,9 +35,12 @@ var loopState = {
     // spawn units
     //
     units = game.add.group();
+    // configure unit physics (gravity and others set individually in spawn)
     units.enableBody = true;
     units.physicsBodyType = Phaser.Physics.ARCADE;
+    // tell game how many unit objects are required and their sprite source
     units.createMultiple(playerCount, 'tank');
+    // prevent units from existing outside map
     units.setAll('outOfBoundsKill', true);
     units.setAll('checkWorldBounds', true);
     // TODO spawn units during flyby intro (hence function, for callback)
@@ -122,7 +125,7 @@ var loopState = {
       console.log('fire from', pos);
       // fire!
       console.log('fuego!');
-      standardShot.fire()
+      standardShot.fire();
       // go to next turn
       gameTurn = (gameTurn + 1) % playerCount;
       console.log('turn updated to', gameTurn);

@@ -15,7 +15,7 @@ var fireTime = 0;
 var layer;
 var map;
 // player info
-var playerCount; // playerCount is amt of players
+var playerCount;
 var players = [];
 var playersLeft;
 // firingAngle holds the current angle of each player's tank

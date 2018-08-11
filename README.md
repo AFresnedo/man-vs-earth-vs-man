@@ -213,3 +213,4 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
                 * variables not as intended
     * use player object instead of injecting into the unit
         * things like score, dead, etc
+        * refactor firing angle into players
