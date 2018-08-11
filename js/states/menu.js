@@ -28,16 +28,16 @@ var menuState = {
     console.log('reached start');
     // create player objects
     // TODO preserve player objects throughout levels but not restarts
-    for (var i = 0; i < playerCount.value; i++) {
+    for (var i = 0; i < playerCount; i++) {
       // TODO get player names
       // TODO create inventory object
       // name (TBI), score, inventory (TBI), unit (null in this state)
       player = new Player(i, 0, null, null);
       players[i] = player;
     }
-    // TODO break game when playerCount.value is not 2-8
-    console.log('player count is', playerCount.value);
-    playersLeft = playerCount.value;
+    // TODO break game when playerCount is not 2-8
+    console.log('player count is', playerCount);
+    playersLeft = playerCount;
     console.log('players left is', playersLeft);
     game.state.start('loop');
   }

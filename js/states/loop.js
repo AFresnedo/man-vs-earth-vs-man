@@ -8,7 +8,7 @@ var loopState = {
     console.log('loopState: create reached!');
 
     // init firingAngle
-    for (var i = 0; i < playerCount.value; i++) {
+    for (var i = 0; i < playerCount; i++) {
       firingAngle.push(0);
     }
 
@@ -37,7 +37,7 @@ var loopState = {
     units = game.add.group();
     units.enableBody = true;
     units.physicsBodyType = Phaser.Physics.ARCADE;
-    units.createMultiple(playerCount.value, 'tank');
+    units.createMultiple(playerCount, 'tank');
     units.setAll('outOfBoundsKill', true);
     units.setAll('checkWorldBounds', true);
     // TODO spawn units during flyby intro (hence function, for callback)
@@ -49,7 +49,7 @@ var loopState = {
     //
     // create weapons/ammo
     //
-    standardShot = game.add.weapon(playerCount.value, 'bullet');
+    standardShot = game.add.weapon(playerCount, 'bullet');
     // TODO test if bulletGravity exists, otherwise can't talk to .y
     standardShot.bulletGravity.y = 15;
     standardShot.bulletSpeed = -50;
@@ -67,7 +67,7 @@ var loopState = {
     // setup turret movement animation
     // skip turn if tank is dead
     if (!(currentUnit.dead === undefined || currentUnit.dead == false)) {
-      gameTurn = (gameTurn + 1) % playerCount.value;
+      gameTurn = (gameTurn + 1) % playerCount;
       return;
     }
     currentUnit.animations.play('moveTurret');
@@ -124,7 +124,7 @@ var loopState = {
       console.log('fuego!');
       standardShot.fire()
       // go to next turn
-      gameTurn = (gameTurn + 1) % playerCount.value;
+      gameTurn = (gameTurn + 1) % playerCount;
       console.log('turn updated to', gameTurn);
     }
 

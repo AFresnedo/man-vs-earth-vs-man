@@ -1,7 +1,7 @@
 // on a timer, drops all tanks from ceiling
 function spawnUnits() {
   console.log('dropping tanks');
-  for (var i = 0; i < playerCount.value; i++) {
+  for (var i = 0; i < playerCount; i++) {
     console.log('dropping tank', i);
     // create new unit
     var unit = units.getFirstExists(false);
