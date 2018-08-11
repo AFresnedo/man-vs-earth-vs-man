@@ -32,9 +32,9 @@ function directHit(shell, unit) {
     // destroy attack object
     shell.kill();
     // destroy target
-    var owner = getPlayer(unit);
+    var target = getPlayer(unit);
     unit.kill(); // remove sprite from game
-    owner.dead = true; // mark player as dead
+    target.dead = true; // mark player as dead
     console.log('playersLeft is', playersLeft());
   }
 }

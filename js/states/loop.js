@@ -37,18 +37,15 @@ var loopState = {
     // TODO spawn units during flyby intro (hence function, for callback)
     spawnUnits();
 
-    // TODO start game "paused", makes coding player turns in update easier
     console.log('begin turn:', gameTurn);
 
     //
     // create weapons/ammo
     //
     standardShot = game.add.weapon(playerCount, 'shell');
-    // TODO test if bulletGravity exists, otherwise can't talk to .y
     standardShot.bulletGravity.y = 15;
     standardShot.bulletSpeed = -50;
 
-    // TODO move to "win" state when <=1 tank remains
   },
 
   update: function() {
@@ -74,7 +71,7 @@ var loopState = {
     //
     // turret movement
     //
-    if (rightKey.isDown && (game.time.now > turretTime)) {
+    if (rightKey.isDown && (game.time.now > turretMoveCooldown)) {
       // increase angle unless it's maxed out
       if (currentPlayer.angle >= 180) {
         console.log('turret already max right');
@@ -83,10 +80,10 @@ var loopState = {
         players[gameTurn].angle += 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      turretTime = game.time.now + 250;
+      turretMoveCooldown = game.time.now + 250;
       currentPlayer.unit.animations.next();
     }
-    else if (leftKey.isDown && (game.time.now > turretTime)) {
+    else if (leftKey.isDown && (game.time.now > turretMoveCooldown)) {
       // reduce angle unless it's already at 0
       if (players[gameTurn].angle <= 0) {
         console.log('turret already max left');
@@ -95,19 +92,19 @@ var loopState = {
         players[gameTurn].angle -= 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      turretTime = game.time.now + 250;
-      turretTime = game.time.now + 250;
+      turretMoveCooldown = game.time.now + 250;
+      turretMoveCooldown = game.time.now + 250;
       currentPlayer.unit.animations.previous();
     }
 
     //
     // turret controls (excluding movement)
     //
-    if (spaceKey.isDown && (game.time.now > fireTime)) {
+    if (spaceKey.isDown && (game.time.now > fireCooldown)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
       // update cooldown
-      fireTime = game.time.now + 500;
+      fireCooldown = game.time.now + 500;
       // set angle
       // gameTurn, as the index, is used to separate each player's angle
       console.log('fire angle is', players[gameTurn].angle);
