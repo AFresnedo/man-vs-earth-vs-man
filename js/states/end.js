@@ -12,12 +12,12 @@ var endState = {
     game.add.text(0, 0, scoreRecieved);
 
     // instructions
-    var instructions = 'press "r" to restart!';
+    var instructions = 'press "g" to restart!';
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 3, instructions);
-    var contKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
+    var restartKey = game.input.keyboard.addKey(Phaser.Keyboard.G);
     // addOnce is a Phaser Signal, addOnce makes it a single-time trigger
     // first parameter is callback, second parameter is 'in what context'
-    contKey.onDown.addOnce(this.restart, this);
+    restartKey.onDown.addOnce(this.restart, this);
   },
 
   // restart the game from beginning
