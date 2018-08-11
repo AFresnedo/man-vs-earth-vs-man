@@ -41,11 +41,11 @@ function playersLeft() {
 // post: returns the player object that the sprite belongs to
 function getPlayer(tank) {
   // scan players for a match
-  players.forEach(player) {
+  players.forEach(function(player) {
     if (player.unit === tank) {
       return player;
     }
-  }
+  });
   // a tank should always be claimed by a player
   throw 'player not found in getPlayer(unit)!';
 }
