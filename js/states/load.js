@@ -17,6 +17,7 @@ var loadState = {
 
     // load shells
     game.load.image('standardShell', 'assets/imgs/standard-shot.png');
+    game.load.image('missile', 'assets/imgs/missile.png');
   },
 
   // there is nothing to display in load

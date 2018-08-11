@@ -7,7 +7,7 @@ function spawnUnits() {
     var unit = units.getFirstExists(false);
     unit.reset(game.rnd.integerInRange(32, GAME_WIDTH - 32), 32);
     // adjust hitbox to resemble graphic
-    unit.body.setSize(28, 16, 4, 16);
+    unit.body.setSize(28, 16, 2, 16);
     // set gravity for unit
     unit.body.gravity.y = 20;
     // configure unit animations
