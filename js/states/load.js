@@ -2,20 +2,20 @@ var loadState = {
   // Phaser standard function, called before create
   preload: function() {
     // load menu background
-    game.load.image('menuBG', 'assets/blue-bg.png');
+    game.load.image('menuBG', 'assets/imgs/blue-bg.png');
 
     // load sprite for loop
     game.load.spritesheet('tank',
-        './assets/second-pass/tank-spritesheet.png', 32, 32);
+        'assets/imgs/tank-spritesheet.png', 32, 32);
 
     // load tileset
-    game.load.image('earthTile', './assets/earth_tileset.png');
+    game.load.image('earthTile', 'assets/tiles/earth_tileset.png');
     // load tilemap
     game.load.tilemap('earth',
-        './assets/second-pass/single-level-one.json',
+        'assets/maps/single-level-one.json',
         null, Phaser.Tilemap.TILED_JSON);
     // load standard shell
-    game.load.image('shell', './assets/second-pass/missile.png');
+    game.load.image('shell', 'assets/imgs/missile.png');
   },
 
   // there is nothing to display in load
