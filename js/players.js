@@ -37,6 +37,25 @@ function playersLeft() {
   return totalPlayers;
 }
 
+// post: returns false if no winner, else that winner's player object
+function winner() {
+  // check if a winner is possible
+  if (playersLeft() !== 1) {
+    return false;
+  }
+  // since there is a winner, return them
+  else {
+    players.forEach(function(player) {
+      if (player.alive === true) {
+        return player;
+      }
+      else {
+        throw '1 player left but no winner detected in winner()';
+      }
+    });
+  }
+}
+
 // pre: players[] is in scope, unit is a phaser sprite in game
 // post: returns the player object that the sprite belongs to
 function getPlayer(tank) {
