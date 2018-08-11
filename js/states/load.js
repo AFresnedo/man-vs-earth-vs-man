@@ -18,6 +18,7 @@ var loadState = {
 
   // there is nothing to display in load
   create: function() {
+    console.log('pulling up menu');
     // pull up the menu
     game.state.start('menu');
   }

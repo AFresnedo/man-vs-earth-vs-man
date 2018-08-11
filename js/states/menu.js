@@ -4,7 +4,7 @@ var menuState = {
   playerCountInput: null,
 
   create: function() {
-    console.log('reached menuState create:');
+    console.log('reached menuState create');
     // display sky background, TODO repalce with menu bg
     background = game.add.sprite(0, 0, 'menuBG');
 
