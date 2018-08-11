@@ -54,7 +54,7 @@ var loopState = {
     //
     // create weapons/ammo
     //
-    shell = game.add.weapon(playerCount, 'shell');
+    shell = game.add.weapon(playerCount, 'standardShell');
     shell.bulletGravity.y = 15;
     shell.bulletSpeed = -50;
 
