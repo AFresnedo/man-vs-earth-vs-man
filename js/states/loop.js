@@ -1,8 +1,4 @@
 var loopState = {
-  preload: function() {
-    // TODO load real bullet sprite
-    game.load.image('bullet', './assets/second-pass/missile.png');
-  },
 
   create: function() {
     console.log('loopState: create reached!');
@@ -47,7 +43,7 @@ var loopState = {
     //
     // create weapons/ammo
     //
-    standardShot = game.add.weapon(playerCount, 'bullet');
+    standardShot = game.add.weapon(playerCount, 'shell');
     // TODO test if bulletGravity exists, otherwise can't talk to .y
     standardShot.bulletGravity.y = 15;
     standardShot.bulletSpeed = -50;

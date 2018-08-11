@@ -2,7 +2,7 @@ var loadState = {
   // Phaser standard function, called before create
   preload: function() {
     // load menu background
-    game.load.image('menuBG', 'phaser_tut/assets/sky.png');
+    game.load.image('menuBG', 'assets/blue-bg.png');
 
     // load sprite for loop
     game.load.spritesheet('tank',
@@ -14,6 +14,8 @@ var loadState = {
     game.load.tilemap('earth',
         './assets/second-pass/single-level-one.json',
         null, Phaser.Tilemap.TILED_JSON);
+    // load standard shell
+    game.load.image('shell', './assets/second-pass/missile.png');
   },
 
   // there is nothing to display in load
