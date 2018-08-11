@@ -63,9 +63,9 @@ var loopState = {
     this.shells.bulletGravity.y = 40;
     this.shells.bulletSpeed = -150;
     // missile
-    this.missile = game.add.weapon(playerCount, 'missile');
-    this.missile.bulletGravity.y = 60;
-    this.missile.bulletSpeed = -200;
+    this.missiles = game.add.weapon(playerCount, 'missile');
+    this.missiles.bulletGravity.y = 60;
+    this.missiles.bulletSpeed = -200;
 
   },
 
@@ -84,6 +84,12 @@ var loopState = {
     // setup turret movement animation
     currentPlayer.unit.animations.play('moveTurret');
     currentPlayer.unit.animations.paused = true;
+
+    //
+    // ammo selection
+    //
+    // TODO remove this hardcoded ammo select
+    currentPlayer.ammo = this.missiles;
 
     //
     // turret movement
@@ -120,23 +126,25 @@ var loopState = {
     if (this.spaceKey.isDown && (game.time.now > this.fireCooldown)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
+      // get shooter's ammo choice (weapon group to be used)
+      var ammo = shooter.ammo;
       // update cooldown
       this.fireCooldown = game.time.now + 500;
       // set angle
       // gameTurn, as the index, is used to separate each player's angle
       console.log('fire angle is', players[gameTurn].angle);
-      this.shells.fireAngle = players[gameTurn].angle;
+      ammo.fireAngle = players[gameTurn].angle;
       // estimate turret position as pos
       var posX = (currentPlayer.unit.x + TANK_X_OFFSET) +
         (currentPlayer.angle / 10); // angle helps determine turret pos
       // spawn shell from turret's pos
       var pos = new Phaser.Rectangle(posX, currentPlayer.unit.y +
           TANK_Y_OFFSET);
-      this.shells.fireFrom = pos;
+      ammo.fireFrom = pos;
       console.log('fire from', pos);
       // fire!
       console.log('fuego!');
-      this.shells.fire();
+      ammo.fire();
       // go to next turn
       gameTurn = (gameTurn + 1) % playerCount;
       console.log('turn updated to', gameTurn);
@@ -145,8 +153,10 @@ var loopState = {
     //
     // collisions
     //
-    // ammo and units
+    // shells and units
     game.physics.arcade.overlap(this.shells.bullets, units, directHit);
+    // missiles and units
+    game.physics.arcade.overlap(this.missiles.bullets, units, directHit);
     // units and terrain
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer);
@@ -154,6 +164,10 @@ var loopState = {
     // shells and terrain
     this.shells.forEach(function(shell) {
       game.physics.arcade.collide(shell, layer);
+    });
+    // missiles and terrain
+    this.missiles.forEach(function(missile) {
+      game.physics.arcade.collide(missile, layer);
     });
   }
 };

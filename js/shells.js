@@ -38,3 +38,6 @@ function directHit(shell, unit) {
     console.log('playersLeft is', playersLeft());
   }
 }
+
+function selectAmmo(player, choice) {
+}
