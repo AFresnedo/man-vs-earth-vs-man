@@ -37,9 +37,15 @@ function playersLeft() {
   return totalPlayers;
 }
 
-// pre: takes a phaser sprite
-// post: returns the player object the sprite belongs to
-function getPlayer(unit) {
+// pre: players[] is in scope, unit is a phaser sprite in game
+// post: returns the player object that the sprite belongs to
+function getPlayer(tank) {
   // scan players for a match
-  // return match
+  players.forEach(player) {
+    if (player.unit === tank) {
+      return player;
+    }
+  }
+  // a tank should always be claimed by a player
+  throw 'player not found in getPlayer(unit)!';
 }
