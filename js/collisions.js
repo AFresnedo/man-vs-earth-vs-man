@@ -18,6 +18,7 @@ function directHit(ammo, unit) {
 
 function destruction(ammo, tile) {
   console.log('tile is', tile);
+  map.removeTile(tile.x, tile.y);
   // explode ammo
   ammo.kill();
 }
