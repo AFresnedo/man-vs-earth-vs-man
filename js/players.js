@@ -40,6 +40,7 @@ function playersLeft() {
 // pre: players[] is in scope, unit is a phaser sprite in game
 // post: returns the player object that the sprite belongs to
 function getPlayer(tank) {
+  var owner = null;
   // TODO remove debug injection
   console.log('tank is', tank);
   tank.andres_tank_injection = 'im the dead one';
@@ -49,9 +50,15 @@ function getPlayer(tank) {
     player.unit.andres_player_injection = player.name;
     console.log('players tank is', player.unit);
     if (player.unit === tank) {
-      return player;
+      owner = player;
     }
   });
+  // if owner found, return that player object
+  if (owner) {
+    return owner;
+  }
   // a tank should always be claimed by a player
-  throw 'player not found in getPlayer(unit)!';
+  else {
+    throw 'player not found in getPlayer(unit)!';
+  }
 }

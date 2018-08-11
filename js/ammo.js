@@ -35,6 +35,6 @@ function directHit(shell, unit) {
     var owner = getPlayer(unit);
     unit.kill(); // remove sprite from game
     owner.dead = true; // mark player as dead
-    console.log('playersLeft is', playersLeft);
+    console.log('playersLeft is', playersLeft());
   }
 }
