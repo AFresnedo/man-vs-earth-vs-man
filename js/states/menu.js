@@ -28,6 +28,8 @@ var menuState = {
     console.log('reached start');
     // TODO break game when playerCount.value is not 2-8
     console.log('player count is', playerCount.value);
+    playersLeft = playerCount.value;
+    console.log('players left is', playersLeft);
     game.state.start('loop');
   }
 }

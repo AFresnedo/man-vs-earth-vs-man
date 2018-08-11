@@ -192,3 +192,11 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * be careful of shooter being updated
     * if "next player" shoots before the last missile
     * inject shooter identity into attack possible fix
+* TODO refactor
+    * playerCount.value, gameTurn, playersLeft, currentUnit.dead
+        * all this janky code is based off using playerCount.value too much
+            * should have just had a player list that worked properly
+                * instead of always making new variables and using other
+                * variables not as intended
+    * use player object instead of injecting into the unit
+        * things like score, dead, etc

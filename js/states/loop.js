@@ -54,19 +54,20 @@ var loopState = {
     standardShot.bulletGravity.y = 15;
     standardShot.bulletSpeed = -50;
 
-    // TODO is body required for gravity?
-
-
-
     // TODO move to "win" state when <=1 tank remains
   },
 
   update: function() {
-    // setup turret movement animation
+    // get the unit of the current turn's player
     currentUnit = players[gameTurn];
+    // check for win
+    if (playersLeft <= 1) {
+      game.state.start('end');
+    }
+    // setup turret movement animation
     // skip turn if tank is dead
     if (!(currentUnit.dead === undefined || currentUnit.dead == false)) {
-      gameTurn += 1;
+      gameTurn = (gameTurn + 1) % playerCount.value;
       return;
     }
     currentUnit.animations.play('moveTurret');
@@ -131,7 +132,5 @@ var loopState = {
     /// bullet/bomb collision
     ///
     game.physics.arcade.overlap(standardShot.bullets, units, directHit);
-
   }
-
 };
