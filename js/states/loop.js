@@ -71,12 +71,10 @@ var loopState = {
       game.physics.arcade.collide(unit, layer);
     });
 
-    // TODO update next turn to use real game logic
-    if (enterKey.isDown && (game.time.now > turnTime)) {
-      turnTime = game.time.now + 500;
-    }
-
-    else if (rightKey.isDown && (game.time.now > turretTime)) {
+    //
+    // turret movement
+    //
+    if (rightKey.isDown && (game.time.now > turretTime)) {
       // increase angle unless it's maxed out
       if (currentPlayer.angle >= 180) {
         console.log('turret already max right');
@@ -101,7 +99,11 @@ var loopState = {
       turretTime = game.time.now + 250;
       currentPlayer.unit.animations.previous();
     }
-    else if (spaceKey.isDown && (game.time.now > fireTime)) {
+
+    //
+    // turret controls (excluding movement)
+    //
+    if (spaceKey.isDown && (game.time.now > fireTime)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
       // update cooldown

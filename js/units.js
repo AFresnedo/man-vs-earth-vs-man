@@ -16,9 +16,3 @@ function spawnUnits() {
     console.log('players[i].name is', players[i].name);
   }
 }
-
-// function moveTurret(unit, turretChange) {
-  // // TODO careful of hardcoded mod
-  // turretPosition = (unit._frame.index + turretChange) % 11;
-  // unit._frame.index = turretPosition;
-// }
