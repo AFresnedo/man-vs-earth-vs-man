@@ -36,3 +36,10 @@ function playersLeft() {
   }
   return totalPlayers;
 }
+
+// pre: takes a phaser sprite
+// post: returns the player object the sprite belongs to
+function getPlayer(unit) {
+  // scan players for a match
+  // return match
+}

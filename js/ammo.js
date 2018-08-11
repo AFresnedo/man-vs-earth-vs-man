@@ -27,11 +27,11 @@ function directHit(shell, unit) {
     console.log('suicide avoided');
   }
   else {
-    shooter.score += 1;
-  {
     console.log('direct hit detected');
+    shooter.score += 1;
+    // destroy attack object
     shell.kill();
-    // kill unit
+    // destroy target
     unit.dead = true;
     unit.kill();
     console.log('playersLeft is', playersLeft);
