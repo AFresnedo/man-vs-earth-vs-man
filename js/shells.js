@@ -20,24 +20,6 @@ function StandardShot(weight = 100, explSize = 32, power = 100, cost = 0) {
   this.cost = cost;
 }
 
-// shell and unit are the objs overlapping
-// type is the type of ammo used
-function directHit(shell, unit) {
-  if (unit === shooter.unit) {
-    console.log('suicide avoided');
-  }
-  else {
-    console.log('direct hit detected');
-    shooter.score += 1;
-    // destroy attack object
-    shell.kill();
-    // destroy target
-    var target = getPlayer(unit);
-    unit.kill(); // remove sprite from game
-    target.dead = true; // mark player as dead
-    console.log('playersLeft is', playersLeft());
-  }
-}
 
 function selectAmmo(player, choice) {
 }

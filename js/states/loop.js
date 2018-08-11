@@ -163,11 +163,11 @@ var loopState = {
     });
     // shells and terrain
     this.shells.forEach(function(shell) {
-      game.physics.arcade.collide(shell, layer);
+      game.physics.arcade.collide(shell, layer, destruction);
     });
     // missiles and terrain
     this.missiles.forEach(function(missile) {
-      game.physics.arcade.collide(missile, layer);
+      game.physics.arcade.collide(missile, layer, destruction);
     });
   }
 };
