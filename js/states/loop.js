@@ -7,11 +7,6 @@ var loopState = {
   create: function() {
     console.log('loopState: create reached!');
 
-    // init firingAngle
-    for (var i = 0; i < playerCount; i++) {
-      firingAngle.push(0);
-    }
-
     //
     // user input
     //
@@ -61,20 +56,20 @@ var loopState = {
   },
 
   update: function() {
-    // get the unit of the current turn's player
-    currentUnit = players[gameTurn];
+    // get the player whose turn it is
+    currentPlayer = players[gameTurn];
     // check for win
-    if (playersLeft <= 1) {
+    if (playersLeft() <= 1) {
       game.state.start('end');
     }
-    // setup turret movement animation
-    // skip turn if tank is dead
-    if (!(currentUnit.dead === undefined || currentUnit.dead == false)) {
+    // skip turn if player's tank is dead
+    if (currentPlayer.dead) {
       gameTurn = (gameTurn + 1) % playerCount;
       return;
     }
-    currentUnit.animations.play('moveTurret');
-    currentUnit.animations.paused = true;
+    // setup turret movement animation
+    currentPlayer.unit.animations.play('moveTurret');
+    currentPlayer.unit.animations.paused = true;
     // check ground and tank collisions
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer);
@@ -87,40 +82,41 @@ var loopState = {
 
     else if (rightKey.isDown && (game.time.now > turretTime)) {
       // increase angle unless it's maxed out
-      if (firingAngle[gameTurn] >= 180) {
+      if (currentPlayer.angle >= 180) {
         console.log('turret already max right');
       }
       else {
-        firingAngle[gameTurn] += 18;
+        players[gameTurn].angle += 18;
       }
-      console.log('updating angle to', firingAngle[gameTurn]);
+      console.log('updating angle to', players[gameTurn].angle);
       turretTime = game.time.now + 250;
-      currentUnit.animations.next();
+      currentPlayer.unit.animations.next();
     }
     else if (leftKey.isDown && (game.time.now > turretTime)) {
       // reduce angle unless it's already at 0
-      if (firingAngle[gameTurn] <= 0) {
+      if (players[gameTurn].angle <= 0) {
         console.log('turret already max left');
       }
       else {
-        firingAngle[gameTurn] -= 18;
+        players[gameTurn].angle -= 18;
       }
-      console.log('updating angle to', firingAngle[gameTurn]);
+      console.log('updating angle to', players[gameTurn].angle);
       turretTime = game.time.now + 250;
       turretTime = game.time.now + 250;
-      currentUnit.animations.previous();
+      currentPlayer.unit.animations.previous();
     }
     else if (spaceKey.isDown && (game.time.now > fireTime)) {
       // store shooter before gameTurn changes
-      shooter = currentUnit;
+      shooter = currentPlayer;
       // update cooldown
       fireTime = game.time.now + 500;
       // set angle
       // gameTurn, as the index, is used to separate each player's angle
-      console.log('fire angle is', firingAngle[gameTurn]);
-      standardShot.fireAngle = firingAngle[gameTurn];
+      console.log('fire angle is', players[gameTurn].angle);
+      standardShot.fireAngle = players[gameTurn].angle;
       // set bullet origin point
-      var pos = new Phaser.Rectangle(currentUnit.x, currentUnit.y);
+      var pos = new Phaser.Rectangle(currentPlayer.unit.x,
+          currentPlayer.unit.y);
       standardShot.fireFrom = pos;
       console.log('fire from', pos);
       // fire!

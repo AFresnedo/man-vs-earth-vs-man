@@ -15,15 +15,15 @@ function Inventory(money, tracers, ammoList, utilityList) {
     this.utilityList = utilityList;
 }
 
-function Player(name, score, inventory, unit, angle) {
+function Player(name, score, inventory, unit) {
     // primitives
     this.name = name;
     this.score = score;
     this.dead = false; // players are created alive
+    this.angle = 0; // turrets begin at 0 degree angles
     // objects
     this.inventory = inventory;
     this.unit = unit;
-    this.angle = angle;
 }
 
 // returns count of players alive in players[]

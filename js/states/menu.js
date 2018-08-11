@@ -38,7 +38,7 @@ var menuState = {
       // TODO get player names
       // TODO create inventory object
       // name (TBI), score, inventory (TBI), unit (null in this state), angle
-      var player = new Player(i, 0, null, null, 0);
+      var player = new Player(i, 0, null, null);
       players[i] = player;
     }
     // TODO break game when playerCount is not 2-8
