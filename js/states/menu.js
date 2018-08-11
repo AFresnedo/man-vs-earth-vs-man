@@ -38,13 +38,12 @@ var menuState = {
       // TODO get player names
       // TODO create inventory object
       // name (TBI), score, inventory (TBI), unit (null in this state), angle
-      player = new Player(i, 0, null, null, 0);
+      var player = new Player(i, 0, null, null, 0);
       players[i] = player;
     }
     // TODO break game when playerCount is not 2-8
     console.log('player count is', playerCount);
-    playersLeft = playerCount;
-    console.log('players left is', playersLeft);
+    console.log('players left is', playersLeft());
     game.state.start('loop');
   }
 };

@@ -19,8 +19,20 @@ function Player(name, score, inventory, unit, angle) {
     // primitives
     this.name = name;
     this.score = score;
+    this.dead = false; // players are created alive
     // objects
     this.inventory = inventory;
     this.unit = unit;
     this.angle = angle;
+}
+
+// returns count of players alive in players[]
+function playersLeft() {
+  totalPlayers = players.length;
+  for (var i = 0; i < players.length; i++) {
+    if (players[i].dead === true) {
+      totalPlayers--;
+    }
+  }
+  return totalPlayers;
 }
