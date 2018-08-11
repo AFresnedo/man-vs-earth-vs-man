@@ -4,7 +4,7 @@ var loadState = {
     // load menu background
     game.load.image('menuBG', 'assets/imgs/blue-bg.png');
 
-    // load sprite for loop
+    // load tank img sprite
     game.load.spritesheet('tank',
         'assets/imgs/tank-spritesheet.png', 32, 32);
 
@@ -14,6 +14,7 @@ var loadState = {
     game.load.tilemap('earth',
         'assets/maps/single-level-one.json',
         null, Phaser.Tilemap.TILED_JSON);
+
     // load standard shell
     game.load.image('shell', 'assets/imgs/missile.png');
   },

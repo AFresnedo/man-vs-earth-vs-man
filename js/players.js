@@ -6,15 +6,6 @@
  * Created by Andres Fresnedo
  */
 
-function Inventory(money, tracers, ammoList, utilityList) {
-    // primitives
-    this.money = money;
-    this.tracers = tracers;
-    // arrays
-    this.ammoList = ammoList;
-    this.utilityList = utilityList;
-}
-
 function Player(name, score, inventory, unit) {
     // primitives
     this.name = name;
