@@ -27,9 +27,3 @@ var upKey;
 var downKey;
 var enterKey;
 var spaceKey;
-
-
-// TODO credit art
-//"[asset name]" by [author name] licensed [license(s)]: [asset url]
-// https://opengameart.org/content/sky-background
-// https://opengameart.org/content/ice-plains-background

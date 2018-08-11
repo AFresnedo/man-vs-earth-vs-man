@@ -1,17 +1,25 @@
 var loopState = {
 
+  // input
+  leftKey: null,
+  rightKey: null,
+  upKey: null,
+  downKey: null,
+  enterKey: null,
+  spaceKey: null,
+
   create: function() {
     console.log('loopState: create reached!');
 
     //
     // user input
     //
-    leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-    rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
-    upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
-    downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
-    enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-    spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    this.leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+    this.rightKey = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+    this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
+    this.downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
+    this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+    this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
 
     //
@@ -71,7 +79,7 @@ var loopState = {
     //
     // turret movement
     //
-    if (rightKey.isDown && (game.time.now > turretMoveCooldown)) {
+    if (this.rightKey.isDown && (game.time.now > turretMoveCooldown)) {
       // increase angle unless it's maxed out
       if (currentPlayer.angle >= 180) {
         console.log('turret already max right');
@@ -83,7 +91,7 @@ var loopState = {
       turretMoveCooldown = game.time.now + 250;
       currentPlayer.unit.animations.next();
     }
-    else if (leftKey.isDown && (game.time.now > turretMoveCooldown)) {
+    else if (this.leftKey.isDown && (game.time.now > turretMoveCooldown)) {
       // reduce angle unless it's already at 0
       if (players[gameTurn].angle <= 0) {
         console.log('turret already max left');
@@ -100,7 +108,7 @@ var loopState = {
     //
     // turret controls (excluding movement)
     //
-    if (spaceKey.isDown && (game.time.now > fireCooldown)) {
+    if (this.spaceKey.isDown && (game.time.now > fireCooldown)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
       // update cooldown
