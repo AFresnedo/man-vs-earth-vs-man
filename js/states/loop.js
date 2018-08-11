@@ -54,9 +54,9 @@ var loopState = {
     //
     // create weapons/ammo
     //
-    standardShot = game.add.weapon(playerCount, 'shell');
-    standardShot.bulletGravity.y = 15;
-    standardShot.bulletSpeed = -50;
+    shell = game.add.weapon(playerCount, 'shell');
+    shell.bulletGravity.y = 15;
+    shell.bulletSpeed = -50;
 
   },
 
@@ -75,10 +75,6 @@ var loopState = {
     // setup turret movement animation
     currentPlayer.unit.animations.play('moveTurret');
     currentPlayer.unit.animations.paused = true;
-    // check ground and tank collisions
-    units.forEach(function(unit) {
-      game.physics.arcade.collide(unit, layer);
-    });
 
     //
     // turret movement
@@ -120,23 +116,32 @@ var loopState = {
       // set angle
       // gameTurn, as the index, is used to separate each player's angle
       console.log('fire angle is', players[gameTurn].angle);
-      standardShot.fireAngle = players[gameTurn].angle;
+      shell.fireAngle = players[gameTurn].angle;
       // set bullet origin point
       var pos = new Phaser.Rectangle(currentPlayer.unit.x,
           currentPlayer.unit.y);
-      standardShot.fireFrom = pos;
+      shell.fireFrom = pos;
       console.log('fire from', pos);
       // fire!
       console.log('fuego!');
-      standardShot.fire();
+      shell.fire();
       // go to next turn
       gameTurn = (gameTurn + 1) % playerCount;
       console.log('turn updated to', gameTurn);
     }
 
-    ///
-    /// bullet/bomb collision
-    ///
-    game.physics.arcade.overlap(standardShot.bullets, units, directHit);
+    //
+    // collisions
+    //
+    game.physics.arcade.overlap(shell.bullets, units, directHit);
+    game.physics.arcade.collide(shell.bullets, map, directHit);
+    // check units and terrain
+    units.forEach(function(unit) {
+      game.physics.arcade.collide(unit, layer);
+    });
+    // check shells and terrain
+    units.forEach(function(unit) {
+      game.physics.arcade.collide(unit, layer);
+    });
   }
 };

@@ -16,5 +16,5 @@ var playerCount;
 var players = [];
 // game objects
 var units;
-var standardShot;
+var shell;
 var shooter;
