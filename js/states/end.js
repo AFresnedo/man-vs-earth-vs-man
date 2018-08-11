@@ -8,7 +8,7 @@ var endState = {
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 2, greetingMsg);
 
     // display score
-    var scoreRecieved = "score: " + currentUnit.score;
+    var scoreRecieved = 'score: ' + winner().score;
     game.add.text(0, 0, scoreRecieved);
 
     // instructions
@@ -16,7 +16,7 @@ var endState = {
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 3, instructions);
     var contKey = game.input.keyboard.addKey(Phaser.Keyboard.R);
     // addOnce is a Phaser Signal, addOnce makes it a single-time trigger
-    // first parameter is callback, second parameter is "in what context"
+    // first parameter is callback, second parameter is 'in what context'
     contKey.onDown.addOnce(this.restart, this);
   },
 
@@ -25,4 +25,4 @@ var endState = {
     console.log('restarting');
     game.state.start('boot');
   }
-}
+};

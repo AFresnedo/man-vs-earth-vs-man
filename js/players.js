@@ -45,14 +45,18 @@ function winner() {
   }
   // since there is a winner, return them
   else {
+    var winner = null;
     players.forEach(function(player) {
-      if (player.alive === true) {
-        return player;
-      }
-      else {
-        throw '1 player left but no winner detected in winner()';
+      if (!player.dead) {
+        winner = player;
       }
     });
+    if (winner) {
+      return winner;
+    }
+    else {
+      throw '1 player left but no winner detected in winner()';
+    }
   }
 }
 
