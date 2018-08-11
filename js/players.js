@@ -6,24 +6,20 @@
  * Created by Andres Fresnedo
  */
 
-class Inventory {
-  constructor(money, tracers, ammoList, utilityList) {
+function Inventory(money, tracers, ammoList, utilityList) {
     // primitives
     this.money = money;
     this.tracers = tracers;
     // arrays
     this.ammoList = ammoList;
     this.utilityList = utilityList;
-  }
-};
+}
 
-class Player {
-  constructor(name, score, inventory, unit) {
+function Player(name, score, inventory, unit) {
     // primitives
     this.name = name;
     this.score = score;
     // objects
     this.inventory = inventory;
     this.unit = unit;
-  }
-};
+}

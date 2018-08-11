@@ -119,6 +119,13 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
             * more time to setup turret and fire
     * very late feature to implement, easier just to be random
 
+## Levels
+
+* ~ 4 levels where player object data is preserved throughout
+    * this means that score, money, etc is conserved after a level
+* players cannot change between levels
+    * restarting the game will reset players
+
 ## Destructable Terrain
 
 * core game feature
@@ -156,6 +163,12 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * spacebar
 
 ## Player Objects
+
+* player names are requested at start
+    * shown for each turn in UI
+* score stored here
+* reference to unit (phaser sprite) stored here
+* alive/dead status stored here
 
 ## Game Loop
 
