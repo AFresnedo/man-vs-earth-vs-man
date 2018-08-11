@@ -8,6 +8,10 @@ var loopState = {
   enterKey: null,
   spaceKey: null,
 
+  // game mechanics
+  turretMoveCooldown: 0,
+  fireCooldown: 0,
+
   create: function() {
     console.log('loopState: create reached!');
 
@@ -79,7 +83,7 @@ var loopState = {
     //
     // turret movement
     //
-    if (this.rightKey.isDown && (game.time.now > turretMoveCooldown)) {
+    if (this.rightKey.isDown && (game.time.now > this.turretMoveCooldown)) {
       // increase angle unless it's maxed out
       if (currentPlayer.angle >= 180) {
         console.log('turret already max right');
@@ -88,10 +92,10 @@ var loopState = {
         players[gameTurn].angle += 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      turretMoveCooldown = game.time.now + 250;
+      this.turretMoveCooldown = game.time.now + 250;
       currentPlayer.unit.animations.next();
     }
-    else if (this.leftKey.isDown && (game.time.now > turretMoveCooldown)) {
+    else if (this.leftKey.isDown && (game.time.now > this.turretMoveCooldown)) {
       // reduce angle unless it's already at 0
       if (players[gameTurn].angle <= 0) {
         console.log('turret already max left');
@@ -100,19 +104,19 @@ var loopState = {
         players[gameTurn].angle -= 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      turretMoveCooldown = game.time.now + 250;
-      turretMoveCooldown = game.time.now + 250;
+      this.turretMoveCooldown = game.time.now + 250;
+      this.turretMoveCooldown = game.time.now + 250;
       currentPlayer.unit.animations.previous();
     }
 
     //
     // turret controls (excluding movement)
     //
-    if (this.spaceKey.isDown && (game.time.now > fireCooldown)) {
+    if (this.spaceKey.isDown && (game.time.now > this.fireCooldown)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
       // update cooldown
-      fireCooldown = game.time.now + 500;
+      this.fireCooldown = game.time.now + 500;
       // set angle
       // gameTurn, as the index, is used to separate each player's angle
       console.log('fire angle is', players[gameTurn].angle);
