@@ -40,8 +40,14 @@ function playersLeft() {
 // pre: players[] is in scope, unit is a phaser sprite in game
 // post: returns the player object that the sprite belongs to
 function getPlayer(tank) {
+  console.log('tank is', tank);
   // scan players for a match
   players.forEach(function(player) {
+    // TODO remove debug injection
+    console.log('player is', player.name);
+    tank.andres_tank_injection = 'im the dead one';
+    player.unit.andres_player_injection = i;
+    console.log('players tank is', tank);
     if (player.unit === tank) {
       return player;
     }
