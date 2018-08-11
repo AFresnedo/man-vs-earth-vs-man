@@ -186,31 +186,8 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 
 * phaser has a bounce
 * phaser has a drag
-* can we pass objs as parameters through states?
-    * if players choose settings in menu, how do i get them to the game?
-        * a global makes the most sense atm
-* using units = game.add.group
-    * i assign particular player objects in "spawnUnits"
-    * player objects can just be a reference in a "unit" of "units"
-    * i am considering not using game.add.group for units
-        * i would have some "set phaser properties" func to set each p's unit
 * map.removeTile for destructable terrain
     * it may do nothing, so set it to alpha 0 and remove collision instead
-* for moving the turret...
-    * do i make a function that takes a direction and a current position
-        * and then it adjusts the animation frame accordingly?
-        * does phaser provide this functionality under some name?
 * lock spacebar to game (prevent propogatgion or whatever)
 * weirdly enough i think i should have inventory usage ingame & the shop out
-* be careful of shooter being updated
-    * if "next player" shoots before the last missile
-    * inject shooter identity into attack possible fix
-* TODO refactor
-    * playerCount.value, gameTurn, playersLeft, currentUnit.dead
-        * all this janky code is based off using playerCount.value too much
-            * should have just had a player list that worked properly
-                * instead of always making new variables and using other
-                * variables not as intended
-    * use player object instead of injecting into the unit
-        * things like score, dead, etc
-        * refactor firing angle into players
+* think about using arrays for maps and layers for multiple level design

@@ -8,9 +8,7 @@ const TILES_WIDE = 24;
 const TILES_HIGH = 20;
 // game logic
 var gameTurn = 0;
-var turretMoveCooldown = 0;
-var fireCooldown = 0;
-// assets
+// game world
 var layer;
 var map;
 // player info
@@ -20,10 +18,3 @@ var players = [];
 var units;
 var standardShot;
 var shooter;
-// input
-var leftKey;
-var rightKey;
-var upKey;
-var downKey;
-var enterKey;
-var spaceKey;
