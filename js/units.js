@@ -13,7 +13,7 @@ function spawnUnits() {
         1, false);
     // give player reference to their unit
     players[i].unit = unit;
-    console.log('players[i] is', players[i].name);
+    console.log('players[i].name is', players[i].name);
   }
 }
 

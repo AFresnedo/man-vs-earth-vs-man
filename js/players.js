@@ -46,8 +46,8 @@ function getPlayer(tank) {
   // scan players for a match
   players.forEach(function(player) {
     console.log('player is', player.name);
-    player.unit.andres_player_injection = player.unit.name;
-    console.log('players tank is', tank);
+    player.unit.andres_player_injection = player.name;
+    console.log('players tank is', player.unit);
     if (player.unit === tank) {
       return player;
     }
