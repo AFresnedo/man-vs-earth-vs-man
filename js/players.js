@@ -41,14 +41,8 @@ function playersLeft() {
 // post: returns the player object that the sprite belongs to
 function getPlayer(tank) {
   var owner = null;
-  // TODO remove debug injection
-  console.log('tank is', tank);
-  tank.andres_tank_injection = 'im the dead one';
   // scan players for a match
   players.forEach(function(player) {
-    console.log('player is', player.name);
-    player.unit.andres_player_injection = player.name;
-    console.log('players tank is', player.unit);
     if (player.unit === tank) {
       owner = player;
     }
@@ -57,7 +51,7 @@ function getPlayer(tank) {
   if (owner) {
     return owner;
   }
-  // a tank should always be claimed by a player
+  // else throw exception, a tank should always be claimed by a player
   else {
     throw 'player not found in getPlayer(unit)!';
   }
