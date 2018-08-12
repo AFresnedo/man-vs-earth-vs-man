@@ -16,9 +16,10 @@ var loopState = {
   // turret settings
   power: null,
 
-  // turret mechanics
+  // input mechanics
   turretMoveCooldown: 0,
   fireCooldown: 0,
+  selectCooldown: 0,
 
   create: function() {
     console.log('loopState: create reached!');
@@ -32,6 +33,7 @@ var loopState = {
     this.downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
     this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
     this.spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    this.shiftKey = game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
 
     //
@@ -102,6 +104,14 @@ var loopState = {
     // ammo selection
     //
     // TODO call ammoSwitch based on enter/shift
+    if (this.enterKey.isDown && (this.selectCooldown < game.time.now)) {
+      this.selectCooldown = game.time.now + 150;
+      ammoSwitch('up');
+    }
+    else if (this.shiftKey.isDown && (this.selectCooldown < game.time.now)) {
+      this.selectCooldown = game.time.now + 150;
+      ammoSwitch('down');
+    }
     if (currentPlayer.ammo === 'standard') {
       this.selectedAmmo = this.shells;
     }

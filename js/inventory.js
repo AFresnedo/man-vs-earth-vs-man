@@ -13,3 +13,14 @@ function Inventory(money = 0) {
     this.megaBomb = 1;
 }
 
+function ammoSwitch(direction) {
+  if (direction === 'up') {
+    console.log('switch weapon up');
+  }
+  else if (direction === 'down') {
+    console.log('switch weapon down');
+  }
+  else {
+    throw 'improper direction given in ammoSwitch';
+  }
+}
