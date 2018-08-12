@@ -46,3 +46,10 @@ function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
 }
+
+function groundContact(tank) {
+  tank.chute = false;
+  if (tank.fallDeath) {
+    tank.kill();
+  }
+}

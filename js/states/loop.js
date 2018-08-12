@@ -160,6 +160,18 @@ var loopState = {
     }
 
     //
+    // fall detection
+    //
+    players.forEach(function(player) {
+      if (!player.unit.chute && (player.unit.body.velocity.y > 10)) {
+        // TODO wilheim scream
+        console.log(player.unit.body.velocity.y);
+        player.unit.fallDeath = true;
+        player.dead = true;
+      }
+    });
+
+    //
     // collisions
     //
     // shells and units
@@ -168,7 +180,7 @@ var loopState = {
     game.physics.arcade.overlap(this.missiles.bullets, units, directHit);
     // units and terrain
     units.forEach(function(unit) {
-      game.physics.arcade.collide(unit, layer);
+      game.physics.arcade.collide(unit, layer, groundContact);
     });
     // shells and terrain
     this.shells.forEach(function(shell) {
