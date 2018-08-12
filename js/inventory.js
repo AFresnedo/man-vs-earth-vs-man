@@ -13,12 +13,20 @@ function Inventory(money = 0) {
     this.megaBomb = 1;
 }
 
-function ammoSwitch(direction) {
+function ammoSwitch(direction, player) {
   if (direction === 'up') {
     console.log('switch weapon up');
+    player.ammo = (player.ammo + 1) % player.ammoList.length;
   }
   else if (direction === 'down') {
     console.log('switch weapon down');
+    if (player.ammo === 0) {
+      // if ammo selection is already at bottom, go to top
+      player.ammo = player.ammoList.length - 1;
+    }
+    else {
+      player.ammo--;
+    }
   }
   else {
     throw 'improper direction given in ammoSwitch';

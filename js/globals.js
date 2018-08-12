@@ -25,3 +25,4 @@ var shooter;
 var parachutes;
 var standardShell;
 var megaBomb;
+var ammoList = ['standard', 'mega', 'ultra'];

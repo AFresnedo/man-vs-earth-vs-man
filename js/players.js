@@ -15,7 +15,7 @@ function Player(name, score, inventory, unit) {
     // objects
     this.inventory = inventory;
     this.unit = unit;
-    this.ammo = 'standard';
+    this.ammo = 0;
     this.power = 500;
 }
 
