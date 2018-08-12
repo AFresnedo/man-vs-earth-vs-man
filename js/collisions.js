@@ -26,8 +26,6 @@ function destruction(ammo, tile) {
 function bigDestruction(ammo, tile) {
   var x = tile.x;
   var y = tile.y;
-  // remove origin tile
-  map.removeTile(x, y);
   console.log('origin tile is', tile);
   // remove surrounding tiles
   map.removeTile(x + 1, y); // to the right
@@ -38,14 +36,10 @@ function bigDestruction(ammo, tile) {
   map.removeTile(x - 1, y - 1); // diagonal leftup
   map.removeTile(x + 1, y - 1); // diagonal rightdown
   map.removeTile(x - 1, y + 1); // diagonal leftdown
+  // remove origin tile last
+  map.removeTile(x, y);
   // explode ammo
   ammo.kill();
-}
-
-function destructTile(x, y) {
-  var tile = map.getTile(x, y);
-  tile.setCollision(false, false, false, false);
-  map.removeTile(x, y);
 }
 
 function releaseChute(chute, tank) {
@@ -59,6 +53,8 @@ function releaseChute(chute, tank) {
 
 function groundContact(tank) {
   if (tank.fallDeath) {
+    console.log('no chute!');
+    getPlayer(tank).dead = true;
     tank.kill();
   }
 }

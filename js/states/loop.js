@@ -172,7 +172,6 @@ var loopState = {
         if (player.unit.chuteSafety < game.time.now) {
           // TODO wilheim scream
           player.unit.fallDeath = true;
-          player.dead = true;
         }
         else {
           console.log('saftey chute detected');
