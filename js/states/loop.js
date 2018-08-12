@@ -98,7 +98,7 @@ var loopState = {
     //
     // ammo selection
     //
-    // TODO call ammoSwitch based on user input
+    // TODO call ammoSwitch based on enter/shift
     if (currentPlayer.ammo === 'standard') {
       this.selectedAmmo = this.shells;
     }
@@ -109,6 +109,11 @@ var loopState = {
       console.log('no ammo selected, defaulting');
       this.selectedAmmo = this.shells;
     }
+
+    //
+    // power settings
+    //
+    // TODO adjust power based on up/down
 
     //
     // turret movement

@@ -199,7 +199,7 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * all players out of ammo
 * credits button
     * built from loving childhood memories by Andres Fresnedo
-    * coding support: phaser
+    * coding support: phaser (& game mechanics explorer)
     * technical support: brandi, graeme, taylor, zach
     * emotional support: devan, justin
     * sanity support: brian, nate
@@ -216,3 +216,5 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * if all players out of ammo game ends in a draw
     * you only control your tank on your turn
     * spacebar fires selected ammo type & ends your turn
+* power control
+* tracers from Game Mechanics Explorer
