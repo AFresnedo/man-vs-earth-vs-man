@@ -42,6 +42,12 @@ function bigDestruction(ammo, tile) {
   ammo.kill();
 }
 
+function destructTile(x, y) {
+  var tile = map.getTile(x, y);
+  tile.setCollision(false, false, false, false);
+  map.removeTile(x, y);
+}
+
 function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
