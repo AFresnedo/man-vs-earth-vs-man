@@ -72,3 +72,42 @@ function getPlayer(tank) {
     throw 'player not found in getPlayer(unit)!';
   }
 }
+
+// pre: direction is valid, player exists
+// post: changes the player's current ammo type selection based on direction
+function ammoSwitch(direction, player) {
+  if (direction === 'up') {
+    console.log('switch weapon up');
+    player.ammo = (player.ammo + 1) % ammoList.length;
+  }
+  else if (direction === 'down') {
+    if (player.ammo === 0) {
+      console.log('switch weapon down & wrap to top');
+      // if ammo selection is already at bottom, go to top
+      player.ammo = ammoList.length - 1;
+    }
+    else {
+      console.log('switch weapon down');
+      player.ammo--;
+    }
+  }
+  else {
+    throw 'improper direction given in ammoSwitch';
+  }
+}
+
+// pre: direction is valid, player exists
+// post: increases or decreases player-visible-power by 5 (between 0 and 500)
+function powerChange(direction, player) {
+  if (direction === 'up') {
+    player.power = Math.min(player.power + 5, 500);
+    console.log('increase power by 5 to', player.power);
+  }
+  else if (direction === 'down') {
+    player.power = Math.max(player.power - 5, 0);
+    console.log('decrease power by 5 to', player.power);
+  }
+  else {
+    throw 'improper direction given in powerChange';
+  }
+}

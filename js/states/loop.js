@@ -16,10 +16,11 @@ var loopState = {
   // turret settings
   power: null,
 
-  // input mechanics
+  // input delays for user feel
   turretMoveCooldown: 0,
   fireCooldown: 0,
   selectCooldown: 0,
+  powerCooldown: 0,
 
   create: function() {
     console.log('loopState: create reached!');
@@ -129,8 +130,16 @@ var loopState = {
     //
     // power settings
     //
-    // TODO adjust power based on up/down
+    // TODO adjust player-visible-power based on up/down, from 0 to 500
     // negative(power setting) - 25 used to give users clean power numbers
+    if (this.upKey.isDown && (this.powerCooldown < game.time.now)) {
+      this.powerCooldown = game.time.now + 25;
+      powerChange('up', currentPlayer);
+    }
+    else if (this.downKey.isDown && (this.powerCooldown < game.time.now)) {
+      this.powerCooldown = game.time.now + 25;
+      powerChange('down', currentPlayer);
+    }
     this.power = -(currentPlayer.power) - 25;
 
     //
