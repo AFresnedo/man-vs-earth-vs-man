@@ -16,15 +16,16 @@ function Inventory(money = 0) {
 function ammoSwitch(direction, player) {
   if (direction === 'up') {
     console.log('switch weapon up');
-    player.ammo = (player.ammo + 1) % player.ammoList.length;
+    player.ammo = (player.ammo + 1) % ammoList.length;
   }
   else if (direction === 'down') {
-    console.log('switch weapon down');
     if (player.ammo === 0) {
+      console.log('switch weapon down & wrap');
       // if ammo selection is already at bottom, go to top
-      player.ammo = player.ammoList.length - 1;
+      player.ammo = ammoList.length - 1;
     }
     else {
+      console.log('switch weapon down');
       player.ammo--;
     }
   }
