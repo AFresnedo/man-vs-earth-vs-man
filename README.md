@@ -194,3 +194,13 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * when you add inventory, buying a chute just turns "chute" back to "true"
     * similarly, refactor all chute mechanics into inventory object logic
 * control player count
+* implement draw condition
+    * all players out of ammo
+* credits button
+    * built from loving childhood memories by Andres Fresnedo
+    * coding support: phaser
+    * technical support: brandi, graeme, taylor, zach
+    * emotional support: devan, justin
+    * sanity support: brian, nate
+    * special thanks to john & kelsey for not leaving me alone in the room!
+* instructions button
