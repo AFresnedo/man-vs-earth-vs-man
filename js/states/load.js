@@ -1,4 +1,6 @@
 var loadState = {
+  // maps available
+  maps: ['deep-canyons-map', 'hill-map', 'hole-map', 'shallow-canyons-map'],
   // Phaser standard function, called before create
   preload: function() {
     // load menu background
@@ -9,10 +11,10 @@ var loadState = {
         'assets/imgs/tank-spritesheet.png', 32, 32);
 
     // load tileset
-    game.load.image('earthTile', 'assets/tiles/earth_tileset.png');
+    game.load.image('earthTile', 'assets/tiles/bland_4set.png');
     // load tilemap
     game.load.tilemap('earth',
-        'assets/maps/single-level-one.json',
+        'assets/maps/' + this.maps[0] + '.json',
         null, Phaser.Tilemap.TILED_JSON);
 
     // load ammo

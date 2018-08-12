@@ -48,8 +48,8 @@ var loopState = {
     // create terrain
     //
     map = game.add.tilemap('earth');
-    map.addTilesetImage('ground_tiles', 'earthTile');
-    layer = map.createLayer('Tile Layer 1');
+    map.addTilesetImage('bland_4set', 'earthTile');
+    layer = map.createLayer('Ground');
     map.setCollisionBetween(0, TILES_WIDE * TILES_HIGH);
 
     //
