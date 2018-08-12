@@ -112,20 +112,26 @@ var loopState = {
       this.powerText.destroy();
     }
     // display power setting
-    this.powerText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 150,
+    this.powerText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 50,
         'Power: ' + currentPlayer.power, {fill: '#ff0000'});
     // display ammo selection
     if (this.ammoTypeText !== null) {
       this.ammoTypeText.destroy();
     }
-    this.ammoTypeText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 200,
+    this.ammoTypeText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 100,
         'Ammo: ' + ammoList[currentPlayer.ammo], {fill: '#00ffff'});
     // display current player (+1 since player 0 is confusing)
     if (this.playerText !== null) {
       this.playerText.destroy();
     }
-    this.playerText = game.add.text(150, GAME_HEIGHT - 150,
+    this.playerText = game.add.text(75, GAME_HEIGHT - 50,
         'Player: ' + (currentPlayer.name + 1), {fill: '#ffff00'});
+    // display score
+    if (this.scoreText !== null) {
+      this.scoreText.destroy();
+    }
+    this.scoreText = game.add.text(75, GAME_HEIGHT - 100,
+        'Score: ' + currentPlayer.score, {fill: '#00ff00'});
 
     //
     // animations
