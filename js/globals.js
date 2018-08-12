@@ -8,6 +8,8 @@ const TILES_WIDE = 24;
 const TILES_HIGH = 20;
 const TANK_X_OFFSET = 2;
 const TANK_Y_OFFSET = 16;
+const TILE_WIDTH = 32;
+const TILE_HEIGHT = 32;
 // game logic
 var gameTurn = 0;
 // game world
