@@ -53,16 +53,12 @@ function groundContact(tank) {
     console.log('chute released!');
     // just landed, remove invulnerability
     tank.chute = false;
-    tank.chuteSaftey = game.time.now + 250;
+    tank.chuteSaftey = game.time.now + 100;
   }
-  else if (tank.body.velocity < 20) {
-    // on the ground, do nothing
-  }
-  else if (game.time.now > tank.chuteSaftey) {
-    // no chute for awhile and high fall speed
-    tank.kill();
+  else if ((tank.chuteSaftey < game.time.now) && tank.body.velocity.y > 1) {
+    console.log('fall death detected');
   }
   else {
-    throw 'groundContact() is illogical':
+    console.log('chute safety detected');
   }
 }
