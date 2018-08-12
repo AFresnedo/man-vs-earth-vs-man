@@ -22,6 +22,11 @@ var loopState = {
   selectCooldown: 0,
   powerCooldown: 0,
 
+  // player feedback
+  powerText: null,
+  scoreText: null,
+  ammoTypeText: null,
+
   create: function() {
     console.log('loopState: create reached!');
 
@@ -97,6 +102,14 @@ var loopState = {
       gameTurn = (gameTurn + 1) % playerCount;
       return;
     }
+    //
+    // display in-game-window UI for player
+    //
+    // display power setting
+    powerText = game.add.text(50, 50, 'Power: ' + currentPlayer.power);
+    // display ammo selection
+    // display player index (+1 since player 0 is confusing)
+
     // setup turret movement animation
     currentPlayer.unit.animations.play('moveTurret');
     currentPlayer.unit.animations.paused = true;
@@ -130,7 +143,7 @@ var loopState = {
     //
     // power settings
     //
-    // TODO adjust player-visible-power based on up/down, from 0 to 500
+    // adjust player-visible-power based on up/down, from 0 to 500
     // negative(power setting) - 25 used to give users clean power numbers
     if (this.upKey.isDown && (this.powerCooldown < game.time.now)) {
       this.powerCooldown = game.time.now + 25;

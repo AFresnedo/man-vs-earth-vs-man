@@ -223,8 +223,7 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * if all players out of ammo game ends in a draw
     * you only control your tank on your turn
     * spacebar fires selected ammo type & ends your turn
-* power control
-    * 0 to 500
+* flash currentPlayer's tank
 * tracers from Game Mechanics Explorer
 * ultra bomb
     * start with 0
