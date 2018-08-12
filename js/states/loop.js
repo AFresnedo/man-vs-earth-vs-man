@@ -11,6 +11,7 @@ var loopState = {
   // ammo groups
   shells: null,
   megaBombs: null,
+  ultraBombs: null,
   selectedAmmo: null,
 
   // turret settings
@@ -88,6 +89,14 @@ var loopState = {
     this.megaBombs = game.add.weapon(playerCount, 'megaBomb');
     this.megaBombs.bulletGravity.y = 60;
     this.megaBombs.bulletSpeed = -200;
+    // ultraBomb
+    this.ultraBombs = game.add.weapon(playerCount, 'ultraBomb');
+    this.ultraBombs.bulletGravity.y = 60;
+    this.ultraBombs.bulletSpeed = -200;
+    this.ultraBombs.forEach(function(ultraBomb) {
+      debugger;
+      ultraBomb.animations.add('ultra');
+    });
 
   },
 
@@ -160,7 +169,7 @@ var loopState = {
     }
     // TODO replace with ultraBombs
     else if (currentPlayer.ammo === 2) {
-      this.selectedAmmo = this.megaBombs;
+      this.selectedAmmo = this.ultraBombs;
     }
     else {
       throw 'no ammo selected in game loop for this player';
@@ -241,6 +250,8 @@ var loopState = {
         // fire!
         console.log('fuego!');
         ammo.fire();
+        // TODO make it for ultra only
+        ammo.bullets.getFirstExists(true).animations.play(5, true);
         // go to next turn
         gameTurn = (gameTurn + 1) % playerCount;
         console.log('turn updated to', gameTurn);

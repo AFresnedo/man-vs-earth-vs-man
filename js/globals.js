@@ -11,6 +11,8 @@ const TANK_Y_OFFSET = 16;
 const TILE_WIDTH = 32;
 const TILE_HEIGHT = 32;
 const STANDARD_FALL = 30;
+// the game (phaser object)
+var game;
 // game logic
 var gameTurn = 0;
 // game world

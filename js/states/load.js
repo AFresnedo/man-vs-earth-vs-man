@@ -18,6 +18,8 @@ var loadState = {
     // load ammo
     game.load.image('standardShell', 'assets/imgs/standard-shot.png');
     game.load.image('megaBomb', 'assets/imgs/mega-bomb.png');
+    game.load.spritesheet('ultraBomb',
+        'assets/imgs/ultra-bomb-spritesheet.png', 16, 16);
 
     // load utility items
     game.load.image('parachute', 'assets/imgs/parachute.png');
