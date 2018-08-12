@@ -192,3 +192,4 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 * weirdly enough i think i should have inventory usage ingame & the shop out
 * think about using arrays for maps and layers for multiple level design
 * when you add inventory, buying a chute just turns "chute" back to "true"
+    * similarly, refactor all chute mechanics into inventory object logic
