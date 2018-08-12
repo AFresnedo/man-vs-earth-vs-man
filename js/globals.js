@@ -28,3 +28,5 @@ var parachutes;
 var standardShell;
 var megaBomb;
 var ammoList = ['standard', 'mega', 'ultra'];
+// player options
+var levelSelect = 0;

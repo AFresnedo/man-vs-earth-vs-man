@@ -2,6 +2,7 @@ var menuState = {
 
   // a "context" scoped variable to be set in create: and used in start:
   playerCountInput: null,
+  levelSelectInput: null,
 
   create: function() {
     console.log('reached menuState create');
@@ -19,8 +20,13 @@ var menuState = {
 
     // player count
     var askPlayers = 'how many players? bots soon(tm)';
-    game.add.text(0, 0, askPlayers);
-    this.playerCountInput = game.add.inputField(10, 90);
+    game.add.text(50, 50, askPlayers);
+    this.playerCountInput = game.add.inputField(50, 75);
+
+    // player count
+    var askLevel = 'which level? 1-4';
+    game.add.text(50, 100, askLevel);
+    this.levelSelectInput = game.add.inputField(50, 125);
 
     var contKey = game.input.keyboard.addKey(Phaser.Keyboard.C);
     // addOnce is a Phaser Signal, addOnce makes it a single-time trigger
@@ -32,7 +38,19 @@ var menuState = {
   start: function() {
     console.log('reached start');
     // get player count after input given
-    playerCount = this.playerCountInput.value;
+    if (2 <= this.playerCountInput <= 8) {
+      playerCount = this.playerCountInput.value;
+    }
+    else {
+      playerCount = 2;
+    }
+    // get level selection
+    if (1 <= this.levelSelectInput <= 4) {
+      levelSelect = this.levelSelectInput.value - 1;
+    }
+    else {
+      levelSelect = 0;
+    }
     // create player objects
     // TODO preserve player objects throughout levels but not restarts
     for (var i = 0; i < playerCount; i++) {

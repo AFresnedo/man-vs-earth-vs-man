@@ -1,5 +1,8 @@
 var loopState = {
 
+  // available maps
+  maps: ['deep-canyons-map', 'hill-map', 'hole-map', 'shallow-canyons-map'],
+
   // player input
   leftKey: null,
   rightKey: null,
@@ -28,6 +31,17 @@ var loopState = {
   scoreText: null,
   ammoTypeText: null,
   playerText: null,
+
+  preload: function() {
+
+    // load tileset
+    game.load.image('earthTile', 'assets/tiles/bland_4set.png');
+    // load tilemap
+    game.load.tilemap('earth',
+        'assets/maps/' + this.maps[levelSelect] + '.json',
+        null, Phaser.Tilemap.TILED_JSON);
+
+  },
 
   create: function() {
     console.log('loopState: create reached!');
