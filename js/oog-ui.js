@@ -10,8 +10,10 @@ $(document).ready(function() {
   $('#credits').click(showCredits);
 });
 
+// display instructions
 function showInstructions() {
-  $('#show-info').text('instructions says hello');
+  var instructions = $('#hidden-instructions');
+  $('#show-info').html(instructions.html());
 }
 
 function showCredits() {

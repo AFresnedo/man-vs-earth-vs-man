@@ -1,7 +1,23 @@
+body {
+  background-color: grey;
+  text: white;
+}
 .aligned-left-window {
   /* nothing required here atm */
 }
 
 .aligned-right-window {
   margin-left: 558px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
+.key {
+  color: green;
 }
