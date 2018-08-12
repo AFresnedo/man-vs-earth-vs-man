@@ -299,8 +299,8 @@ var loopState = {
       game.physics.arcade.collide(megaBomb, layer, bigDestruction);
     });
     // ultraBombs and terrain
-    this.megaBombs.forEach(function(megaBomb) {
-      game.physics.arcade.collide(megaBomb, layer, massDestruction);
+    this.ultraBombs.forEach(function(ultraBomb) {
+      game.physics.arcade.collide(ultraBomb, layer, massDestruction);
     });
     // parachutes and tanks
     parachutes.forEach(function(chute) {
