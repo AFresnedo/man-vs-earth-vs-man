@@ -93,9 +93,8 @@ var loopState = {
     this.ultraBombs = game.add.weapon(playerCount, 'ultraBomb');
     this.ultraBombs.bulletGravity.y = 60;
     this.ultraBombs.bulletSpeed = -200;
-    this.ultraBombs.forEach(function(ultraBomb) {
-      debugger;
-      ultraBomb.animations.add('ultra');
+    this.ultraBombs.bullets.forEach(function(ultraBomb) {
+      ultraBomb.animations.add('ultraBomb');
     });
 
   },
@@ -250,8 +249,13 @@ var loopState = {
         // fire!
         console.log('fuego!');
         ammo.fire();
-        // TODO make it for ultra only
-        ammo.bullets.getFirstExists(true).animations.play(5, true);
+        if (ammo === this.ultraBombs) {
+          console.log('ultraBomb fired!');
+          var bombFired = ammo.bullets.getFirstExists(true);
+          console.log('ultraBomb fired:', bombFired);
+          bombFired.animations.play('ultraBomb', 15, true);
+          console.log('ultraBomb animation played');
+        }
         // go to next turn
         gameTurn = (gameTurn + 1) % playerCount;
         console.log('turn updated to', gameTurn);
