@@ -26,6 +26,7 @@ var loopState = {
   powerText: null,
   scoreText: null,
   ammoTypeText: null,
+  playerText: null,
 
   create: function() {
     console.log('loopState: create reached!');
@@ -102,14 +103,33 @@ var loopState = {
       gameTurn = (gameTurn + 1) % playerCount;
       return;
     }
+
     //
     // display in-game-window UI for player
     //
+    // remove old power setting display
+    if (this.powerText !== null) {
+      this.powerText.destroy();
+    }
     // display power setting
-    powerText = game.add.text(50, 50, 'Power: ' + currentPlayer.power);
+    this.powerText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 150,
+        'Power: ' + currentPlayer.power, {fill: '#ff0000'});
     // display ammo selection
-    // display player index (+1 since player 0 is confusing)
+    if (this.ammoTypeText !== null) {
+      this.ammoTypeText.destroy();
+    }
+    this.ammoTypeText = game.add.text(GAME_WIDTH - 250, GAME_HEIGHT - 200,
+        'Ammo: ' + ammoList[currentPlayer.ammo], {fill: '#00ffff'});
+    // display current player (+1 since player 0 is confusing)
+    if (this.playerText !== null) {
+      this.playerText.destroy();
+    }
+    this.playerText = game.add.text(150, GAME_HEIGHT - 150,
+        'Player: ' + (currentPlayer.name + 1), {fill: '#ffff00'});
 
+    //
+    // animations
+    //
     // setup turret movement animation
     currentPlayer.unit.animations.play('moveTurret');
     currentPlayer.unit.animations.paused = true;
