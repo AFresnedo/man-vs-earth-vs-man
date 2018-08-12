@@ -13,7 +13,10 @@ var loopState = {
   megaBombs: null,
   selectedAmmo: null,
 
-  // game mechanics
+  // turret settings
+  power: null,
+
+  // turret mechanics
   turretMoveCooldown: 0,
   fireCooldown: 0,
 
@@ -114,6 +117,8 @@ var loopState = {
     // power settings
     //
     // TODO adjust power based on up/down
+    // negative(power setting) - 25 used to give users clean power numbers
+    this.power = -(currentPlayer.power) - 25;
 
     //
     // turret movement
@@ -156,6 +161,8 @@ var loopState = {
       else {
         // get shooter's ammo selection
         var ammo = this.selectedAmmo;
+        // get shooter's power setting
+        ammo.bulletSpeed = this.power;
         // update cooldown
         this.fireCooldown = game.time.now + 500;
         // set angle

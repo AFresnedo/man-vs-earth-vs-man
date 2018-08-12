@@ -16,6 +16,7 @@ function Player(name, score, inventory, unit) {
     this.inventory = inventory;
     this.unit = unit;
     this.ammo = 'standard';
+    this.power = 500;
 }
 
 // returns count of players alive in players[]

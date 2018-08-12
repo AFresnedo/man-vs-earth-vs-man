@@ -217,4 +217,18 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * you only control your tank on your turn
     * spacebar fires selected ammo type & ends your turn
 * power control
+    * 0 to 500
 * tracers from Game Mechanics Explorer
+* ultra bomb
+    * start with 0
+    * costs 200 gas cans
+* parachute
+    * start with "1" (expended in game start)
+    * costs 100 gas cans
+* megabomb
+    * start with 0
+    * costs 100 gas cans
+* handicap
+    * +100 gas cans at start
+* direct hit
+    * +100 gas cans
