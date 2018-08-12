@@ -15,16 +15,16 @@ var menuState = {
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 2, greetingMsg);
 
     // instructions
-    var instructions = 'press "c" after typing in the number of players!';
+    var instructions = 'press "c" when done';
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 3, instructions);
 
     // player count
-    var askPlayers = 'how many players? bots soon(tm)';
+    var askPlayers = 'how many players? 2-8 (default is 2)';
     game.add.text(50, 50, askPlayers);
     this.playerCountInput = game.add.inputField(50, 75);
 
     // player count
-    var askLevel = 'which level? 1-4';
+    var askLevel = 'which level? 1-4 (default is 1)';
     game.add.text(50, 100, askLevel);
     this.levelSelectInput = game.add.inputField(50, 125);
 
@@ -56,7 +56,7 @@ var menuState = {
     for (var i = 0; i < playerCount; i++) {
       // TODO get player names
       // TODO create inventory object
-      // name (TBI), score, inventory (TBI), unit (null in this state), angle
+      // name, score, inventory, unit (null in this state)
       var player = new Player(i, 0, new Inventory(), null);
       players[i] = player;
     }

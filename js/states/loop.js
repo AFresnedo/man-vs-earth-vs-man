@@ -167,11 +167,11 @@ var loopState = {
     //
     // TODO call ammoSwitch based on enter/shift
     if (this.enterKey.isDown && (this.selectCooldown < game.time.now)) {
-      this.selectCooldown = game.time.now + 150;
+      this.selectCooldown = game.time.now + 200;
       ammoSwitch('up', currentPlayer);
     }
     else if (this.shiftKey.isDown && (this.selectCooldown < game.time.now)) {
-      this.selectCooldown = game.time.now + 150;
+      this.selectCooldown = game.time.now + 200;
       ammoSwitch('down', currentPlayer);
     }
     if (currentPlayer.ammo === 0) {
