@@ -42,6 +42,23 @@ function bigDestruction(ammo, tile) {
   ammo.kill();
 }
 
+function massDestruction(ammo, tile) {
+  var x = tile.x;
+  var y = tile.y;
+  console.log('origin of massDestruc is', tile);
+  for (var i = 0, i < 3, i++) {
+    map.removeTile(x + i, y); // to the right
+    map.removeTile(x, y + i); // above
+    map.removeTile(x + i, y + i); // diagonal rightup
+    map.removeTile(x - i, y); // to the left
+    map.removeTile(x, y - i); // below
+    map.removeTile(x - i, y - i); // diagonal leftup
+    map.removeTile(x + i, y - i); // diagonal rightdown
+    map.removeTile(x - i, y + i); // diagonal leftdown
+    map.removeTile(x, y);
+  }
+}
+
 function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();

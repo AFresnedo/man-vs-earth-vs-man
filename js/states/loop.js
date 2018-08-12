@@ -249,8 +249,8 @@ var loopState = {
         // fire!
         console.log('fuego!');
         ammo.fire();
+        // add animation to shell, if it was an ultraBomb
         if (ammo === this.ultraBombs) {
-          console.log('ultraBomb fired!');
           var bombFired = ammo.bullets.getFirstExists(true);
           console.log('ultraBomb fired:', bombFired);
           bombFired.animations.play('ultraBomb', 15, true);
@@ -284,6 +284,8 @@ var loopState = {
     game.physics.arcade.overlap(this.shells.bullets, units, directHit);
     // megaBombs and units
     game.physics.arcade.overlap(this.megaBombs.bullets, units, directHit);
+    // ultraBombs and units
+    game.physics.arcade.overlap(this.ultraBombs.bullets, units, directHit);
     // units and terrain
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer, groundContact);
@@ -295,6 +297,10 @@ var loopState = {
     // megaBombs and terrain
     this.megaBombs.forEach(function(megaBomb) {
       game.physics.arcade.collide(megaBomb, layer, bigDestruction);
+    });
+    // ultraBombs and terrain
+    this.megaBombs.forEach(function(megaBomb) {
+      game.physics.arcade.collide(megaBomb, layer, massDestruction);
     });
     // parachutes and tanks
     parachutes.forEach(function(chute) {
