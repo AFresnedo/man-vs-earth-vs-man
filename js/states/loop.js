@@ -167,7 +167,7 @@ var loopState = {
     });
     // missiles and terrain
     this.missiles.forEach(function(missile) {
-      game.physics.arcade.collide(missile, layer, destruction);
+      game.physics.arcade.collide(missile, layer, bigDestruction);
     });
   }
 };

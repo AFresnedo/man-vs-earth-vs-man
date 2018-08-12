@@ -26,18 +26,18 @@ function destruction(ammo, tile) {
 function bigDestruction(ammo, tile) {
   var x = tile.x;
   var y = tile.y;
-  console.log('origin tile is', tile);
   // remove origin tile
   map.removeTile(x, y);
+  console.log('origin tile is', tile);
   // remove surrounding tiles
-  map.removeTile(x + TILE_WIDTH, y); // to the right
-  map.removeTile(x, y + TILE_HEIGHT); // above
-  map.removeTile(x + TILE_WIDTH, y + TILE_HEIGHT); // diagonal rightup
-  map.removeTile(x - TILE_WIDTH, y); // to the left
-  map.removeTile(x, y - TILE_HEIGHT); // below
-  map.removeTile(x - TILE_WIDTH, y - TILE_HEIGHT); // diagonal leftup
-  map.removeTile(x + TILE_WIDTH, y - TILE_HEIGHT); // diagonal rightdown
-  map.removeTile(x - TILE_WIDTH, y + TILE_HEIGHT); // diagonal leftdown
+  map.removeTile(x + 1, y); // to the right
+  map.removeTile(x, y + 1); // above
+  map.removeTile(x + 1, y + 1); // diagonal rightup
+  map.removeTile(x - 1, y); // to the left
+  map.removeTile(x, y - 1); // below
+  map.removeTile(x - 1, y - 1); // diagonal leftup
+  map.removeTile(x + 1, y - 1); // diagonal rightdown
+  map.removeTile(x - 1, y + 1); // diagonal leftdown
   // explode ammo
   ammo.kill();
 }
