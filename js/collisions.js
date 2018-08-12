@@ -50,14 +50,19 @@ function releaseChute(chute, tank) {
 // TODO update when inventory is available
 function groundContact(tank) {
   if (tank.chute) {
+    console.log('chute released!');
     // just landed, remove invulnerability
     tank.chute = false;
+    tank.chuteSaftey = game.time.now + 250;
   }
   else if (tank.body.velocity < 20) {
     // on the ground, do nothing
   }
-  else {
-    // no chute and high fall speed
+  else if (game.time.now > tank.chuteSaftey) {
+    // no chute for awhile and high fall speed
     tank.kill();
+  }
+  else {
+    throw 'groundContact() is illogical':
   }
 }
