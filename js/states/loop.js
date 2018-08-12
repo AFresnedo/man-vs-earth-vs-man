@@ -112,10 +112,10 @@ var loopState = {
       this.selectCooldown = game.time.now + 150;
       ammoSwitch('down', currentPlayer);
     }
-    if (currentPlayer.ammo === 'standard') {
+    if (currentPlayer.ammo === 0) {
       this.selectedAmmo = this.shells;
     }
-    else if (currentPlayer.ammo === 'mega') {
+    else if (currentPlayer.ammo === 1) {
       this.selectedAmmo = this.megaBombs;
     }
     else {
