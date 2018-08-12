@@ -1,5 +1,5 @@
 console.log('reached main');
-game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, 'gameScreen');
+game = new Phaser.Game(GAME_WIDTH, GAME_HEIGHT, Phaser.AUTO, 'game-window');
 
 // define game states, first arg being new handle
 game.state.add('boot', bootState);
@@ -10,8 +10,3 @@ game.state.add('end', endState);
 
 // begin boot state (boot is start of daisy chain)
 game.state.start('boot');
-
-// TODO out-of-game-window UI
-// "open shop" button (show money and quantities, allow purchases)
-// instructions button
-// credits button
