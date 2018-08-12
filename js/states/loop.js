@@ -98,6 +98,7 @@ var loopState = {
     //
     // ammo selection
     //
+    // TODO call ammoSwitch based on user input
     if (currentPlayer.ammo === 'standard') {
       this.selectedAmmo = this.shells;
     }
@@ -106,7 +107,7 @@ var loopState = {
     }
     else {
       console.log('no ammo selected, defaulting');
-      this.selectedAmmo = 'standard';
+      this.selectedAmmo = this.shells;
     }
 
     //
@@ -148,8 +149,8 @@ var loopState = {
         console.log('tanks don\'t shoot while falling!');
       }
       else {
-        // get shooter's ammo choice (weapon group to be used)
-        var ammo = shooter.ammo;
+        // get shooter's ammo selection
+        var ammo = this.selectedAmmo;
         // update cooldown
         this.fireCooldown = game.time.now + 500;
         // set angle

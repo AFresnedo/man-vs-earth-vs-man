@@ -6,7 +6,7 @@
  * Created by Andres Fresnedo
  */
 
-function Player(name, score, inventory, unit, ammo) {
+function Player(name, score, inventory, unit) {
     // primitives
     this.name = name;
     this.score = score;
@@ -15,7 +15,7 @@ function Player(name, score, inventory, unit, ammo) {
     // objects
     this.inventory = inventory;
     this.unit = unit;
-    this.ammo = ammo;
+    this.ammo = 'standard';
 }
 
 // returns count of players alive in players[]
