@@ -112,7 +112,7 @@ var loopState = {
         players[gameTurn].angle += 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      this.turretMoveCooldown = game.time.now + 250;
+      this.turretMoveCooldown = game.time.now + 100;
       currentPlayer.unit.animations.next();
     }
     else if (this.leftKey.isDown && (game.time.now > this.turretMoveCooldown)) {
@@ -124,8 +124,8 @@ var loopState = {
         players[gameTurn].angle -= 18;
       }
       console.log('updating angle to', players[gameTurn].angle);
-      this.turretMoveCooldown = game.time.now + 250;
-      this.turretMoveCooldown = game.time.now + 250;
+      this.turretMoveCooldown = game.time.now + 100;
+      this.turretMoveCooldown = game.time.now + 100;
       currentPlayer.unit.animations.previous();
     }
 

@@ -2,6 +2,7 @@ var endState = {
   create: function() {
     // display sky background, TODO repalce with menu bg
     background = game.add.sprite(0, 0, 'menuBG');
+    background.scale.setTo(GAME_WIDTH, GAME_HEIGHT);
 
     // display victory message
     var greetingMsg = 'congratulations!';
