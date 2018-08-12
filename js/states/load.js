@@ -14,7 +14,7 @@ var loadState = {
     game.load.image('earthTile', 'assets/tiles/bland_4set.png');
     // load tilemap
     game.load.tilemap('earth',
-        'assets/maps/' + this.maps[0] + '.json',
+        'assets/maps/' + this.maps[2] + '.json',
         null, Phaser.Tilemap.TILED_JSON);
 
     // load ammo

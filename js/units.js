@@ -5,7 +5,7 @@ function spawnUnits() {
     console.log('dropping tank', i);
     // create new unit
     var unit = units.getFirstExists(false);
-    var randPosX = game.rnd.integerInRange(32, GAME_WIDTH - 64);
+    var randPosX = game.rnd.integerInRange(32, GAME_WIDTH - 32);
     unit.reset(randPosX, 32 + 16);
     // TODO refactor parachutes somewhere else
     var parachute = parachutes.getFirstExists(false);
