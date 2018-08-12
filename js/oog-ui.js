@@ -11,9 +11,9 @@ $(document).ready(function() {
 });
 
 function showInstructions() {
-  $('#show-instructions').text('hi');
+  $('#show-info').text('instructions says hello');
 }
 
 function showCredits() {
-  $('#show-credits').text('hi');
+  $('#show-info').text('credits says hello');
 }

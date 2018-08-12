@@ -1,0 +1,7 @@
+button .aligned-left-window {
+  /* nothing required here atm */
+}
+
+button .aligned-right-window {
+  text-align: right;
+}
