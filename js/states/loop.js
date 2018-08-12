@@ -164,10 +164,15 @@ var loopState = {
     //
     players.forEach(function(player) {
       if (!player.unit.chute && (player.unit.body.velocity.y > 10)) {
-        // TODO wilheim scream
-        console.log(player.unit.body.velocity.y);
-        player.unit.fallDeath = true;
-        player.dead = true;
+        if (player.unit.chuteSafety < game.time.now) {
+          // TODO wilheim scream
+          console.log(player.unit.body.velocity.y);
+          player.unit.fallDeath = true;
+          player.dead = true;
+        }
+        else {
+          console.log('saftey chute detected');
+        }
       }
     });
 

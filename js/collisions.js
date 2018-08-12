@@ -45,6 +45,8 @@ function bigDestruction(ammo, tile) {
 function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
+  // provide "fall death" grace period
+  tank.chuteSafety = game.time.now + 100;
 }
 
 function groundContact(tank) {
