@@ -17,5 +17,6 @@ function showInstructions() {
 }
 
 function showCredits() {
-  $('#show-info').text('credits says hello');
+  var credits = $('#hidden-credits');
+  $('#show-info').html(credits.html());
 }
