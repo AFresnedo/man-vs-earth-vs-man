@@ -1,7 +1,7 @@
-button .aligned-left-window {
+.aligned-left-window {
   /* nothing required here atm */
 }
 
-button .aligned-right-window {
-  text-align: right;
+.aligned-right-window {
+  margin-left: 558px;
 }
