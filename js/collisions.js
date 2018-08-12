@@ -46,3 +46,18 @@ function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
 }
+
+// TODO update when inventory is available
+function groundContact(tank) {
+  if (tank.chute) {
+    // just landed, remove invulnerability
+    tank.chute = false;
+  }
+  else if (tank.body.velocity < 20) {
+    // on the ground, do nothing
+  }
+  else {
+    // no chute and high fall speed
+    tank.kill();
+  }
+}

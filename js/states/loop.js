@@ -168,7 +168,7 @@ var loopState = {
     game.physics.arcade.overlap(this.missiles.bullets, units, directHit);
     // units and terrain
     units.forEach(function(unit) {
-      game.physics.arcade.collide(unit, layer);
+      game.physics.arcade.collide(unit, layer, groundContact);
     });
     // shells and terrain
     this.shells.forEach(function(shell) {
