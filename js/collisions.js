@@ -46,7 +46,7 @@ function massDestruction(ammo, tile) {
   var x = tile.x;
   var y = tile.y;
   console.log('origin of massDestruc is', tile);
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < 4; i++) {
     map.removeTile(x + i, y); // to the right
     map.removeTile(x, y + i); // above
     map.removeTile(x + i, y + i); // diagonal rightup
