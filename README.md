@@ -204,3 +204,14 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * sanity support: brian, nate
     * special thanks to john & kelsey for not leaving me alone in the room!
 * instructions button
+    * left/right turret
+    * up/down power
+    * enter/shift inventory select
+    * buy a parachute to survive fall dmg
+    * use handicap for a "free" parachute or megabomb
+        * both 100 units of oil
+    * score points by getting direct hits
+    * win by being the last survivor
+    * if all players out of ammo game ends in a draw
+    * you only control your tank on your turn
+    * spacebar fires selected ammo type & ends your turn
