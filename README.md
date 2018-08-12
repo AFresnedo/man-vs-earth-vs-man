@@ -190,6 +190,7 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * it may do nothing, so set it to alpha 0 and remove collision instead
 * lock spacebar to game (prevent propogatgion or whatever)
 * weirdly enough i think i should have inventory usage ingame & the shop out
+    * agreed
 * think about using arrays for maps and layers for multiple level design
 * when you add inventory, buying a chute just turns "chute" back to "true"
     * similarly, refactor all chute mechanics into inventory object logic

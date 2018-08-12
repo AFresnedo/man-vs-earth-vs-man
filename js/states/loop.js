@@ -8,9 +8,10 @@ var loopState = {
   enterKey: null,
   spaceKey: null,
 
-  // ammo types (TODO refactor into inventory)
+  // ammo groups
   shells: null,
   megaBombs: null,
+  selectedAmmo: null,
 
   // game mechanics
   turretMoveCooldown: 0,
@@ -97,8 +98,16 @@ var loopState = {
     //
     // ammo selection
     //
-    // TODO remove this hardcoded ammo select
-    currentPlayer.ammo = this.megaBombs;
+    if (currentPlayer.ammo === 'standard') {
+      this.selectedAmmo = this.shells;
+    }
+    else if (currentPlayer.ammo === 'mega') {
+      this.selectedAmmo = this.megaBombs;
+    }
+    else {
+      console.log('no ammo selected, defaulting');
+      this.selectedAmmo = 'standard';
+    }
 
     //
     // turret movement

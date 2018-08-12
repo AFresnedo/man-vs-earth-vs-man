@@ -23,3 +23,5 @@ var players = [];
 var units;
 var shooter;
 var parachutes;
+var standardShell;
+var megaBomb;
