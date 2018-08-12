@@ -3,12 +3,13 @@
  * code as the game progresses in development. If not, merge into players.js.
  */
 
-function Inventory(money, tracers, ammoList, utilityList) {
-    // primitives
+// inventory defaults for normal play, money parameter for handicap play
+// TODO check syntax for parameter defaults
+function Inventory(money = 0) {
+    // inventory counts for inventory's owner
     this.money = money;
-    this.tracers = tracers;
-    // arrays
-    this.ammoList = ammoList;
-    this.utilityList = utilityList;
+    this.parachute = true;
+    this.standardShot = 10;
+    this.megaBomb = 1;
 }
 

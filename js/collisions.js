@@ -36,7 +36,7 @@ function bigDestruction(ammo, tile) {
   map.removeTile(x - 1, y - 1); // diagonal leftup
   map.removeTile(x + 1, y - 1); // diagonal rightdown
   map.removeTile(x - 1, y + 1); // diagonal leftdown
-  // remove origin tile last
+  // remove origin tile last, so movement starts after it's clear
   map.removeTile(x, y);
   // explode ammo
   ammo.kill();

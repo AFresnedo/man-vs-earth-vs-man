@@ -69,8 +69,8 @@ var loopState = {
     //
     // standard shell
     this.shells = game.add.weapon(playerCount, 'standardShell');
-    this.shells.bulletGravity.y = 40;
-    this.shells.bulletSpeed = -150;
+    this.shells.bulletGravity.y = 80;
+    this.shells.bulletSpeed = -250;
     // megaBomb
     this.megaBombs = game.add.weapon(playerCount, 'megaBomb');
     this.megaBombs.bulletGravity.y = 60;

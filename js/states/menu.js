@@ -14,7 +14,7 @@ var menuState = {
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 2, greetingMsg);
 
     // instructions
-    var instructions = 'press "c" to cont. with defaults!';
+    var instructions = 'press "c" after typing in the number of players!';
     game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 3, instructions);
 
     // player count
@@ -39,7 +39,7 @@ var menuState = {
       // TODO get player names
       // TODO create inventory object
       // name (TBI), score, inventory (TBI), unit (null in this state), angle
-      var player = new Player(i, 0, null, null);
+      var player = new Player(i, 0, new Inventory(), null);
       players[i] = player;
     }
     // TODO break game when playerCount is not 2-8
