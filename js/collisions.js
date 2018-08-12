@@ -46,19 +46,3 @@ function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
 }
-
-// TODO update when inventory is available
-function groundContact(tank) {
-  if (tank.chute) {
-    console.log('chute released!');
-    // just landed, remove invulnerability
-    tank.chute = false;
-    tank.chuteSaftey = game.time.now + 100;
-  }
-  else if ((tank.chuteSaftey < game.time.now) && tank.body.velocity.y > 1) {
-    console.log('fall death detected');
-  }
-  else {
-    console.log('chute safety detected');
-  }
-}
