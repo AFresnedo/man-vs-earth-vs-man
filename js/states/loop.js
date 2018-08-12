@@ -10,7 +10,7 @@ var loopState = {
 
   // ammo types (TODO refactor into inventory)
   shells: null,
-  missiles: null,
+  megaBombs: null,
 
   // game mechanics
   turretMoveCooldown: 0,
@@ -71,10 +71,10 @@ var loopState = {
     this.shells = game.add.weapon(playerCount, 'standardShell');
     this.shells.bulletGravity.y = 40;
     this.shells.bulletSpeed = -150;
-    // missile
-    this.missiles = game.add.weapon(playerCount, 'missile');
-    this.missiles.bulletGravity.y = 60;
-    this.missiles.bulletSpeed = -200;
+    // megaBomb
+    this.megaBombs = game.add.weapon(playerCount, 'megaBomb');
+    this.megaBombs.bulletGravity.y = 60;
+    this.megaBombs.bulletSpeed = -200;
 
   },
 
@@ -98,7 +98,7 @@ var loopState = {
     // ammo selection
     //
     // TODO remove this hardcoded ammo select
-    currentPlayer.ammo = this.missiles;
+    currentPlayer.ammo = this.megaBombs;
 
     //
     // turret movement
@@ -185,8 +185,8 @@ var loopState = {
     //
     // shells and units
     game.physics.arcade.overlap(this.shells.bullets, units, directHit);
-    // missiles and units
-    game.physics.arcade.overlap(this.missiles.bullets, units, directHit);
+    // megaBombs and units
+    game.physics.arcade.overlap(this.megaBombs.bullets, units, directHit);
     // units and terrain
     units.forEach(function(unit) {
       game.physics.arcade.collide(unit, layer, groundContact);
@@ -195,9 +195,9 @@ var loopState = {
     this.shells.forEach(function(shell) {
       game.physics.arcade.collide(shell, layer, destruction);
     });
-    // missiles and terrain
-    this.missiles.forEach(function(missile) {
-      game.physics.arcade.collide(missile, layer, bigDestruction);
+    // megaBombs and terrain
+    this.megaBombs.forEach(function(megaBomb) {
+      game.physics.arcade.collide(megaBomb, layer, bigDestruction);
     });
     // parachutes and tanks
     parachutes.forEach(function(chute) {
