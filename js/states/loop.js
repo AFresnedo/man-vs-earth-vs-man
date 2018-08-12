@@ -135,28 +135,33 @@ var loopState = {
     if (this.spaceKey.isDown && (game.time.now > this.fireCooldown)) {
       // store shooter before gameTurn changes
       shooter = currentPlayer;
-      // get shooter's ammo choice (weapon group to be used)
-      var ammo = shooter.ammo;
-      // update cooldown
-      this.fireCooldown = game.time.now + 500;
-      // set angle
-      // gameTurn, as the index, is used to separate each player's angle
-      console.log('fire angle is', players[gameTurn].angle);
-      ammo.fireAngle = players[gameTurn].angle;
-      // estimate turret position as pos
-      var posX = (currentPlayer.unit.x + TANK_X_OFFSET) +
-        (currentPlayer.angle / 10); // angle helps determine turret pos
-      // spawn shell from turret's pos
-      var pos = new Phaser.Rectangle(posX, currentPlayer.unit.y +
-          TANK_Y_OFFSET);
-      ammo.fireFrom = pos;
-      console.log('fire from', pos);
-      // fire!
-      console.log('fuego!');
-      ammo.fire();
-      // go to next turn
-      gameTurn = (gameTurn + 1) % playerCount;
-      console.log('turn updated to', gameTurn);
+      if (shooter.unit.body.velocity.y > 1) {
+        console.log('tanks don\'t shoot while falling!');
+      }
+      else {
+        // get shooter's ammo choice (weapon group to be used)
+        var ammo = shooter.ammo;
+        // update cooldown
+        this.fireCooldown = game.time.now + 500;
+        // set angle
+        // gameTurn, as the index, is used to separate each player's angle
+        console.log('fire angle is', players[gameTurn].angle);
+        ammo.fireAngle = players[gameTurn].angle;
+        // estimate turret position as pos
+        var posX = (currentPlayer.unit.x + TANK_X_OFFSET) +
+          (currentPlayer.angle / 10); // angle helps determine turret pos
+        // spawn shell from turret's pos
+        var pos = new Phaser.Rectangle(posX, currentPlayer.unit.y +
+            TANK_Y_OFFSET);
+        ammo.fireFrom = pos;
+        console.log('fire from', pos);
+        // fire!
+        console.log('fuego!');
+        ammo.fire();
+        // go to next turn
+        gameTurn = (gameTurn + 1) % playerCount;
+        console.log('turn updated to', gameTurn);
+      }
     }
 
     //

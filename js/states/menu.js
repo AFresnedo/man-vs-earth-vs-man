@@ -7,6 +7,7 @@ var menuState = {
     console.log('reached menuState create');
     // display sky background, TODO repalce with menu bg
     background = game.add.sprite(0, 0, 'menuBG');
+    background.scale.setTo(GAME_WIDTH, GAME_HEIGHT);
 
     // TODO display a nice message and show menu
     var greetingMsg = 'welcome to the prototype menu!';
