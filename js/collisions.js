@@ -41,3 +41,8 @@ function bigDestruction(ammo, tile) {
   // explode ammo
   ammo.kill();
 }
+
+function releaseChute(chute, tank) {
+  // remove parachute from display
+  chute.kill();
+}

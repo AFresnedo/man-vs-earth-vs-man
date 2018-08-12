@@ -8,7 +8,7 @@ var loopState = {
   enterKey: null,
   spaceKey: null,
 
-  // ammo types
+  // ammo types (TODO refactor into inventory)
   shells: null,
   missiles: null,
 
@@ -37,6 +37,15 @@ var loopState = {
     map.addTilesetImage('ground_tiles', 'earthTile');
     layer = map.createLayer('Tile Layer 1');
     map.setCollisionBetween(0, TILES_WIDE * TILES_HIGH);
+
+    //
+    // create utility item groups
+    //
+    // parachutes
+    parachutes = game.add.group();
+    parachutes.enableBody = true;
+    parachutes.physicsBodyType = Phaser.Physics.ARCADE;
+    parachutes.createMultiple(playerCount, 'parachute');
 
     //
     // spawn units
@@ -168,6 +177,10 @@ var loopState = {
     // missiles and terrain
     this.missiles.forEach(function(missile) {
       game.physics.arcade.collide(missile, layer, bigDestruction);
+    });
+    // parachutes and tanks
+    parachutes.forEach(function(chute) {
+      game.physics.arcade.collide(chute, units, releaseChute);
     });
   }
 };

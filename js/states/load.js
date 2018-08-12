@@ -15,9 +15,12 @@ var loadState = {
         'assets/maps/single-level-one.json',
         null, Phaser.Tilemap.TILED_JSON);
 
-    // load shells
+    // load ammo
     game.load.image('standardShell', 'assets/imgs/standard-shot.png');
     game.load.image('missile', 'assets/imgs/missile.png');
+
+    // load utility items
+    game.load.image('parachute', 'assets/imgs/parachute.png');
   },
 
   // there is nothing to display in load

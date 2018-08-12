@@ -5,11 +5,16 @@ function spawnUnits() {
     console.log('dropping tank', i);
     // create new unit
     var unit = units.getFirstExists(false);
-    unit.reset(game.rnd.integerInRange(32, GAME_WIDTH - 32), 32);
+    var randPos = game.rnd.integerInRange(32, GAME_WIDTH - 32);
+    unit.reset(randPos, 32 + 16);
+    // TODO refactor parachutes somewhere else
+    var parachute = parachutes.getFirstExists(false);
+    parachute.reset(randPos, 32);
+    parachute.body.gravity.y = STANDARD_FALL;
     // adjust hitbox to resemble graphic
     unit.body.setSize(28, 16, TANK_X_OFFSET, TANK_Y_OFFSET);
     // set gravity for unit
-    unit.body.gravity.y = 20;
+    unit.body.gravity.y = STANDARD_FALL;
     // configure unit animations
     unit.animations.add('moveTurret', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
         1, false);
