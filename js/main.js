@@ -11,8 +11,7 @@ game.state.add('end', endState);
 // begin boot state (boot is start of daisy chain)
 game.state.start('boot');
 
-// TODO begin user interface creation
-// inventory selection
-// score display
-// name display
-// instructions popup button???
+// TODO out-of-game-window UI
+// "open shop" button (show money and quantities, allow purchases)
+// instructions button
+// credits button

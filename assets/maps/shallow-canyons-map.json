@@ -30,19 +30,6 @@
          "tilecount":4,
          "tileheight":32,
          "tilewidth":32
-        }, 
-        {
-         "columns":4,
-         "firstgid":5,
-         "image":"..\/tiles\/bland_4set.png",
-         "imageheight":32,
-         "imagewidth":128,
-         "margin":0,
-         "name":"bland_4set",
-         "spacing":0,
-         "tilecount":4,
-         "tileheight":32,
-         "tilewidth":32
         }],
  "tilewidth":32,
  "type":"map",

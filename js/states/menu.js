@@ -38,14 +38,18 @@ var menuState = {
   start: function() {
     console.log('reached start');
     // get player count after input given
-    if (2 <= this.playerCountInput <= 8) {
+    if ((this.playerCountInput.value >= 2) &&
+        (this.playerCountInput.value <= 8)) {
+      console.log('player input given');
       playerCount = this.playerCountInput.value;
     }
     else {
       playerCount = 2;
     }
     // get level selection
-    if (1 <= this.levelSelectInput <= 4) {
+    if ((this.levelSelectInput.value >= 1) &&
+        (this.levelSelectInput.value <= 4)) {
+      console.log('level select input given');
       levelSelect = this.levelSelectInput.value - 1;
     }
     else {
