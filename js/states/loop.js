@@ -124,13 +124,13 @@ var loopState = {
     if (this.playerText !== null) {
       this.playerText.destroy();
     }
-    this.playerText = game.add.text(75, GAME_HEIGHT - 50,
+    this.playerText = game.add.text(50, GAME_HEIGHT - 50,
         'Player: ' + (currentPlayer.name + 1), {fill: '#ffff00'});
     // display score
     if (this.scoreText !== null) {
       this.scoreText.destroy();
     }
-    this.scoreText = game.add.text(75, GAME_HEIGHT - 100,
+    this.scoreText = game.add.text(50, GAME_HEIGHT - 100,
         'Score: ' + currentPlayer.score, {fill: '#00ff00'});
 
     //
