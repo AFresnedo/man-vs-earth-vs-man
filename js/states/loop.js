@@ -118,9 +118,12 @@ var loopState = {
     else if (currentPlayer.ammo === 1) {
       this.selectedAmmo = this.megaBombs;
     }
+    // TODO replace with ultraBombs
+    else if (currentPlayer.ammo === 2) {
+      this.selectedAmmo = this.megaBombs;
+    }
     else {
-      console.log('no ammo selected, defaulting');
-      this.selectedAmmo = this.shells;
+      throw 'no ammo selected in game loop for this player';
     }
 
     //

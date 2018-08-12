@@ -181,6 +181,13 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
 ## Ammo
 
 * each unit has their own ammo obj for each ammo type
+* standard
+    * 1 tile destruction, small size
+* mega
+    * bigger explosion, bigger size
+* ultra
+    * same size as mega but it has a rainbow color animation
+    * massive explosion (1/4 of the tiles?)
 
 # Developer Notes
 

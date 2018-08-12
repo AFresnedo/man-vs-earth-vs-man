@@ -20,7 +20,7 @@ function ammoSwitch(direction, player) {
   }
   else if (direction === 'down') {
     if (player.ammo === 0) {
-      console.log('switch weapon down & wrap');
+      console.log('switch weapon down & wrap to top');
       // if ammo selection is already at bottom, go to top
       player.ammo = ammoList.length - 1;
     }
