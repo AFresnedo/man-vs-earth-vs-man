@@ -106,10 +106,27 @@ function buyChute() {
 }
 function buyShell() {
   console.log('bought shell');
+  currentPlayer.inventory.standardShot++;
 }
 function buyMega() {
-  console.log('bought mega');
+  if (currentPlayer.inventory.money >= 100)
+  {
+    console.log('bought mega');
+    currentPlayer.inventory.megaBomb++;
+    currentPlayer.inventory.money -= 100;
+  }
+  else {
+    console.log('not enough money for mega');
+  }
 }
 function buyUltra() {
-  console.log('bought ultra');
+  if (currentPlayer.inventory.money >= 200)
+  {
+    console.log('bought ultra');
+    currentPlayer.inventory.ultraBomb++;
+    currentPlayer.inventory.money -= 200;
+  }
+  else {
+    console.log('not enough money for ultra');
+  }
 }
