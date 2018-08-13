@@ -4,7 +4,6 @@
  */
 
 // inventory defaults for normal play, money parameter for handicap play
-// TODO check syntax for parameter defaults
 function Inventory(money = 100) {
     // inventory counts for inventory's owner
     this.money = money;

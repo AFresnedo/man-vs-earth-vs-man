@@ -3,30 +3,35 @@ var menuState = {
   // a "context" scoped variable to be set in create: and used in start:
   playerCountInput: null,
   levelSelectInput: null,
+  background: null,
 
   create: function() {
     console.log('reached menuState create');
-    // display sky background, TODO repalce with menu bg
-    background = game.add.sprite(0, 0, 'menuBG');
-    background.scale.setTo(GAME_WIDTH, GAME_HEIGHT);
+    // set background color to yellow
+    game.stage.backgroundColor = '#ffff00';
 
-    // TODO display a nice message and show menu
-    var greetingMsg = 'welcome to the prototype menu!';
-    game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 2, greetingMsg);
+    // welcome title
+    var greetingMsg = 'Welcome to man-vs-earth-vs-man!';
+    game.add.text(125, 20, greetingMsg,
+        {font: 'bold 25pt Arial'});
+
+    // player count
+    var askPlayers = 'Type In Players (2-8)';
+    game.add.text(35, GAME_HEIGHT / 2, askPlayers,
+        {font: '15pt Arial'});
+    this.playerCountInput = game.add.inputField(35, (GAME_HEIGHT / 2) + 30);
+
+    // map selection
+    var askLevel = 'Type In Map (1-4)';
+    game.add.text(550, GAME_HEIGHT / 2, askLevel,
+        {font: '15pt Arial'});
+    this.levelSelectInput = game.add.inputField(550, (GAME_HEIGHT / 2) + 30);
+
 
     // instructions
     var instructions = 'press "c" when done';
-    game.add.text(GAME_WIDTH / 2 - 50, GAME_HEIGHT / 3, instructions);
+    game.add.text(GAME_WIDTH / 3, GAME_HEIGHT - 50, instructions);
 
-    // player count
-    var askPlayers = 'how many players? 2-8 (default is 2)';
-    game.add.text(50, 50, askPlayers);
-    this.playerCountInput = game.add.inputField(50, 75);
-
-    // player count
-    var askLevel = 'which map? 1-4 (default is 1)';
-    game.add.text(50, 100, askLevel);
-    this.levelSelectInput = game.add.inputField(50, 125);
 
     var contKey = game.input.keyboard.addKey(Phaser.Keyboard.C);
     // addOnce is a Phaser Signal, addOnce makes it a single-time trigger

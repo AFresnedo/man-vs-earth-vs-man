@@ -238,3 +238,4 @@ man-vs-earth-vs-man is an artillery game based on scorched earth.
     * +100 gas cans at start
 * direct hit
     * +100 gas cans
+* POSSIBLE BUG: duplicate IDs when showing hidden html

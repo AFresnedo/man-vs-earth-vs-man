@@ -46,6 +46,9 @@ var loopState = {
   create: function() {
     console.log('loopState: create reached!');
 
+    // set background color to black
+    game.stage.backgroundColor = '#000000';
+
     //
     // user input
     //
@@ -177,7 +180,6 @@ var loopState = {
     //
     // ammo selection
     //
-    // TODO call ammoSwitch based on enter/shift
     if (this.enterKey.isDown && (this.selectCooldown < game.time.now)) {
       this.selectCooldown = game.time.now + 200;
       ammoSwitch('up', currentPlayer);
@@ -192,7 +194,6 @@ var loopState = {
     else if (currentPlayer.ammo === 1) {
       this.selectedAmmo = this.megaBombs;
     }
-    // TODO replace with ultraBombs
     else if (currentPlayer.ammo === 2) {
       this.selectedAmmo = this.ultraBombs;
     }

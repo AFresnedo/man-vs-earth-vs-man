@@ -4,9 +4,11 @@
 // setup event listeners on buttons
 $(document).ready(function() {
   console.log('DOM and JQuery loaded');
+  // wire buttons for displaying infos
   $('#instructions').click(showInstructions);
   $('#credits').click(showCredits);
   $('#shop').click(showShop);
+  // wire inventory
 });
 
 // display instructions
