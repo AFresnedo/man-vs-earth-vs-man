@@ -270,6 +270,8 @@ var loopState = {
           bombFired.animations.play('ultraBomb', 15, true);
           console.log('ultraBomb animation played');
         }
+        // close inventory
+        closeShop();
         // go to next turn
         gameTurn = (gameTurn + 1) % playerCount;
         console.log('turn updated to', gameTurn);

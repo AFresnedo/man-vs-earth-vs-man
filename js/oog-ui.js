@@ -33,7 +33,7 @@ function closeShop() {
   // only close shop if it is showing, otherwise will hide other info
   if (showingShop) {
     showingShop = false;
-    var info = $('$show-info');
+    var info = $('#show-info');
     info.empty();
   }
 }

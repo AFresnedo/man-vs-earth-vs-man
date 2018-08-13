@@ -24,7 +24,7 @@ var menuState = {
     this.playerCountInput = game.add.inputField(50, 75);
 
     // player count
-    var askLevel = 'which level? 1-4 (default is 1)';
+    var askLevel = 'which map? 1-4 (default is 1)';
     game.add.text(50, 100, askLevel);
     this.levelSelectInput = game.add.inputField(50, 125);
 
