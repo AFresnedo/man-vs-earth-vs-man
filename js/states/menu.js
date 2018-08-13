@@ -29,7 +29,7 @@ var menuState = {
 
 
     // instructions
-    var instructions = 'press "c" when done';
+    var instructions = 'Press "c" To Cont.';
     game.add.text(GAME_WIDTH / 3, GAME_HEIGHT - 50, instructions);
 
 

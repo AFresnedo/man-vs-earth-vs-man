@@ -31,7 +31,11 @@ function showShop() {
   if (gameOn) {
     showingShop = true;
     var shop = $('#hidden-shop');
+    // create visible shop in info section
     $('#show-info').html(shop.html());
+    // remove hidden shop before using IDs
+    shop.empty();
+    // use IDs to set values
     $('#money-amt').text(currentPlayer.inventory.money);
     if (currentPlayer.inventory.parachute) {
       $('#chute-amt').text('1');
@@ -51,8 +55,12 @@ function showShop() {
 function closeShop() {
   // only close shop if it is showing, otherwise will hide other info
   if (showingShop) {
+    // change shop status to hidden
     showingShop = false;
     var info = $('#show-info');
+    // restore hidden shop
+    $('#hidden-shop').html(info.html());
+    // empty info section
     info.empty();
   }
 }
