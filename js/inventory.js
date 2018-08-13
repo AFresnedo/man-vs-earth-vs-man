@@ -13,6 +13,8 @@ function Inventory(money = 100) {
     this.ultraBomb = 0;
 }
 
+// pre: ammo is proper index of ammoList and player exists
+// post: returns false if player has 0 of that ammo, else true
 function checkAmmo(ammo, player) {
   console.log('ammo check on', ammo);
   var amt;
@@ -36,8 +38,10 @@ function checkAmmo(ammo, player) {
   }
 }
 
-// displays a chute
+// displays a chute for the given tank
 function pullChute(tank) {
+  // set condition that tank has a chute showing
+  tank.chute = true;
   var parachute = parachutes.getFirstExists(false);
   parachute.reset(tank.position.x, 32);
   parachute.body.gravity.y = STANDARD_FALL - 1;

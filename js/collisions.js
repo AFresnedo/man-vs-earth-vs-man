@@ -64,6 +64,8 @@ function massDestruction(ammo, tile) {
 function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
+  // indicate that chute is no longer showing
+  tank.chute = false;
   // make tank vulnerable to fall damage
   var owner = getPlayer(tank);
   owner.inventory.parachute = false;

@@ -302,13 +302,17 @@ var loopState = {
     // fall detection
     //
     players.forEach(function(player) {
-      if (!player.inventory.parachute && (player.unit.body.velocity.y > 10)) {
-        if (player.unit.chuteSafety < game.time.now) {
+      // only consider a certain speed as a "fall"
+      if (player.unit.body.velocity.y > 10) {
+        // if player doesn't have a chute and didn't just land
+        if (!player.inventory.parachute && (player.unit.chuteSafety <
+              game.time.now)) {
           // TODO wilheim scream
           player.unit.fallDeath = true;
         }
-        else {
-          console.log('saftey chute detected');
+        // else if player has a chute, but not showing, deploy it
+        else if (player.inventory.parachute && !(player.unit.chute)) {
+          pullChute(player.unit.tank);
         }
       }
     });
