@@ -256,6 +256,7 @@ var loopState = {
       }
       else {
         // ensure player has ammo
+        console.log(checkAmmo(currentPlayer.ammo, currentPlayer));
         // get shooter's ammo selection
         var ammo = this.selectedAmmo;
         // get shooter's power setting

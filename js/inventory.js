@@ -14,6 +14,7 @@ function Inventory(money = 100) {
 }
 
 function checkAmmo(ammo, player) {
+  console.log('ammo check on', ammo);
   var amt;
   switch (ammoList[ammo]) {
     case 'standard':
@@ -25,5 +26,12 @@ function checkAmmo(ammo, player) {
     case 'ultra':
       amt = player.inventory.ultraBomb;
       break;
+  }
+  console.log('ammo remaining is', amt);
+  if (amt) {
+    return true;
+  }
+  else {
+    return false;
   }
 }
