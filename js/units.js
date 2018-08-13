@@ -1,7 +1,7 @@
 // on a timer, drops all tanks from ceiling
 function spawnUnits() {
   // figure out drop zones to prevent overlap
-  zone = 700 / playerCount;
+  var zone = 700 / playerCount;
   console.log('dropping tanks');
   var startZone = 0;
   var endZone = 32;
