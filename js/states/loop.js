@@ -159,6 +159,15 @@ var loopState = {
         'Score: ' + currentPlayer.score, {fill: '#00ff00'});
 
     //
+    // update out of game window UI for player
+    //
+    // update shop values if shop is open
+    if (showingShop) {
+      showShop();
+    }
+
+
+    //
     // animations
     //
     // setup turret movement animation

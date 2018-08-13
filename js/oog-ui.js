@@ -11,12 +11,14 @@ $(document).ready(function() {
 
 // display instructions
 function showInstructions() {
+  showingShop = false;
   var instructions = $('#hidden-instructions');
   $('#show-info').html(instructions.html());
 }
 
 // display credits
 function showCredits() {
+  showingShop = false;
   var credits = $('#hidden-credits');
   $('#show-info').html(credits.html());
 }
@@ -28,6 +30,16 @@ function showShop() {
     showingShop = true;
     var shop = $('#hidden-shop');
     $('#show-info').html(shop.html());
+    $('#money-amt').text(currentPlayer.inventory.money);
+    if (currentPlayer.inventory.parachute) {
+      $('#chute-amt').text('1');
+    }
+    else {
+      $('#chute-amt').text('0');
+    }
+    $('#shell-amt').text(currentPlayer.inventory.standardShot);
+    $('#mega-amt').text(currentPlayer.inventory.megaBomb);
+    $('#ultra-amt').text(currentPlayer.inventory.ultraBomb);
   }
   else {
     $('#show-info').html("<p>You don't have an inventory!</p>");
