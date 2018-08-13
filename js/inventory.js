@@ -15,8 +15,8 @@ function Inventory(money = 100) {
 
 function checkAmmo(ammo, player) {
   var amt;
-  switch (ammo) {
-    case 'shell':
+  switch (ammoList[ammo]) {
+    case 'standard':
       amt = player.inventory.standardShot;
       break;
     case 'mega':
