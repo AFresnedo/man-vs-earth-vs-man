@@ -81,3 +81,7 @@ function closeShop() {
     info.empty();
   }
 }
+
+function buy(item) {
+  console.log('purchased ' + item);
+}
