@@ -114,10 +114,13 @@ var loopState = {
   },
 
   update: function() {
+    // set game as active
+    gameOn = true;
     // get the player whose turn it is
     currentPlayer = players[gameTurn];
     // check for win
     if (playersLeft() <= 1) {
+      gameOn = false;
       game.state.start('end');
     }
     // skip turn if player's tank is dead

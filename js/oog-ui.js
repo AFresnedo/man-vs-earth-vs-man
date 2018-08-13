@@ -24,9 +24,14 @@ function showCredits() {
 // pre: it is a player's turn
 // post: show shop for current player
 function showShop() {
-  showingShop = true;
-  var shop = $('#hidden-shop');
-  $('#show-info').html(shop.html());
+  if (gameOn) {
+    showingShop = true;
+    var shop = $('#hidden-shop');
+    $('#show-info').html(shop.html());
+  }
+  else {
+    $('#show-info').html("<p>You don't have an inventory!</p>");
+  }
 }
 
 function closeShop() {

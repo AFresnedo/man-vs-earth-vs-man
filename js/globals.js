@@ -15,6 +15,7 @@ const STANDARD_FALL = 30;
 var game;
 // game logic
 var gameTurn = 0;
+var gameOn = false;
 // game world
 var layer;
 var map;
