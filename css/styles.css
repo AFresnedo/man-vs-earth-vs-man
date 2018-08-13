@@ -6,8 +6,12 @@ body {
   /* nothing required here atm */
 }
 
+.aligned-center-window {
+  margin-left: 225px;
+}
+
 .aligned-right-window {
-  margin-left: 558px;
+  margin-left: 225px;
 }
 
 .hidden {

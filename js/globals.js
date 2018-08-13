@@ -30,3 +30,5 @@ var megaBomb;
 var ammoList = ['standard', 'mega', 'ultra'];
 // player options
 var levelSelect = 0;
+// oog-ui
+var showingShop = false;
