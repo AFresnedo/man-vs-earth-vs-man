@@ -21,7 +21,9 @@ function checkAmmo(ammo, player) {
       break;
     case 'mega':
       amt = player.inventory.megaBomb;
+      break;
     case 'ultra':
       amt = player.inventory.ultraBomb;
+      break;
   }
 }
