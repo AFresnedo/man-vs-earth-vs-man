@@ -12,3 +12,16 @@ function Inventory(money = 100) {
     this.megaBomb = 1;
     this.ultraBomb = 0;
 }
+
+function checkAmmo(ammo, player) {
+  var amt;
+  switch (ammo) {
+    case 'shell':
+      amt = player.inventory.standardShot;
+      break;
+    case 'mega':
+      amt = player.inventory.megaBomb;
+    case 'ultra':
+      amt = player.inventory.ultraBomb;
+  }
+}

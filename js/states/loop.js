@@ -255,6 +255,7 @@ var loopState = {
         console.log('tanks don\'t shoot while falling!');
       }
       else {
+        // ensure player has ammo
         // get shooter's ammo selection
         var ammo = this.selectedAmmo;
         // get shooter's power setting
