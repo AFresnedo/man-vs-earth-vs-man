@@ -10,6 +10,9 @@ $(document).ready(function() {
   $('#shop').click(showShop);
   // wire purchase buttons
   $('#buy-chute').click(buyChute);
+  $('#buy-shell').click(buyShell);
+  $('#buy-mega').click(buyMega);
+  $('#buy-ultra').click(buyUltra);
 });
 
 // display instructions
@@ -89,4 +92,13 @@ function closeShop() {
 
 function buyChute() {
   console.log('bought chute');
+}
+function buyShell() {
+  console.log('bought shell');
+}
+function buyMega() {
+  console.log('bought mega');
+}
+function buyUltra() {
+  console.log('bought ultra');
 }
