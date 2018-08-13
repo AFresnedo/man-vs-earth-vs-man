@@ -35,3 +35,10 @@ function checkAmmo(ammo, player) {
     return false;
   }
 }
+
+// displays a chute
+function pullChute(tank) {
+  var parachute = parachutes.getFirstExists(false);
+  parachute.reset(tank.position.x, 32);
+  parachute.body.gravity.y = STANDARD_FALL - 1;
+}

@@ -16,10 +16,8 @@ function spawnUnits() {
     var unit = units.getFirstExists(false);
     var randPosX = game.rnd.integerInRange(startZone, endZone);
     unit.reset(randPosX, 32 + 16);
-    // TODO refactor parachutes somewhere else
-    var parachute = parachutes.getFirstExists(false);
-    parachute.reset(randPosX, 32);
-    parachute.body.gravity.y = STANDARD_FALL - 1;
+    // deploy parachute
+    pullChute(unit);
     // adjust hitbox to resemble graphic
     unit.body.setSize(28, 16, TANK_X_OFFSET, TANK_Y_OFFSET);
     // set gravity for unit
