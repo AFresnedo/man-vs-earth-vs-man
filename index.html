@@ -13,6 +13,23 @@
       type="button">Credits</button>
     <div id="show-info"></div>
 
+    <div id="purchases" class="hidden">
+      <h3>Buy:</h3>
+      <ul class="purchase-items">
+        <li class="buy-item">
+          <button type="button" id="buy-chute">Parachute</button>
+        </li>
+        <li class="buy-item">
+          <button type="button" id="buy-shell">Standard Shell</button>
+        </li>
+        <li class="buy-item">
+          <button type="button" id="buy-mega">Mega Bomb</button>
+        </li>
+        <li class="buy-item">
+          <button type="button" id="buy-ultra">Ultra Bomb</button>
+        </li>
+    </div>
+
     <div id="hidden-instructions" class="hidden">
       <h2>Instructions</h2>
       <p>
@@ -47,18 +64,20 @@
       <h2>Your Inventory</h2>
       <p>
       You may only purchase items on your turn. <br>
-      You recieve 100 gas cans per direct hit. <br>
+      You recieve 100 gas cans (money) per direct hit. <br>
       All items cost 100, except for Ultra Bombs, which cost 200. <br>
       Standard shells are also free...I guess only two things were 100. <br>
       The parachutes do NOT come with a warranty!
       </p>
       <ul>
-        <li>Gas Cans: <span id="money-amt"></span></li>
-        <li>Parachutes (1 max): <span id="chute-amt" class="buy"></span></li>
-        <li>Standard Shells: <span id="shell-amt" class="buy"></span></li>
-        <li>Mega Bombs: <span id="mega-amt" class="buy"></span></li>
+        <li>Gas Cans: <span id="money-amt" class="contrast"></span></li>
+        <li>Parachutes (1 max): <span id="chute-amt"
+            class="contrast"></span></li>
+        <li>Standard Shells: <span id="shell-amt"
+            class="contrast"></span></li>
+        <li>Mega Bombs: <span id="mega-amt" class="contrast"></span></li>
         <li>Ultra Bombs (please be responsible):
-          <span id="ultra-amt" class="buy"></span></li>
+          <span id="ultra-amt" class="contrast"></span></li>
       </ul>
     </div>
 

@@ -9,6 +9,7 @@ $(document).ready(function() {
   $('#credits').click(showCredits);
   $('#shop').click(showShop);
   // wire purchase buttons
+  $('#buy-chute').click(buyChute);
 });
 
 // display instructions
@@ -63,6 +64,8 @@ function showShop() {
     $('#shell-amt').text(currentPlayer.inventory.standardShot);
     $('#mega-amt').text(currentPlayer.inventory.megaBomb);
     $('#ultra-amt').text(currentPlayer.inventory.ultraBomb);
+    // show purchase buttons
+    $('#purchases').toggleClass('hidden');
   }
   else {
     $('#show-info').html("<p>You don't have an inventory!</p>");
@@ -79,5 +82,11 @@ function closeShop() {
     $('#hidden-shop').html(info.html());
     // empty info section
     info.empty();
+    // hide purchase buttons
+    $('#purchases').toggleClass('hidden');
   }
+}
+
+function buyChute() {
+  console.log('bought chute');
 }

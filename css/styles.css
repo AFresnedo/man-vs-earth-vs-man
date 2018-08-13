@@ -26,6 +26,10 @@ body {
   color: green;
 }
 
-.buy {
+.contrast {
   color: orange;
+}
+
+.buy-item {
+  display: inline-block;
 }
