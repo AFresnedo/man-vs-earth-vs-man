@@ -8,7 +8,7 @@ $(document).ready(function() {
   $('#instructions').click(showInstructions);
   $('#credits').click(showCredits);
   $('#shop').click(showShop);
-  // wire inventory
+  // wire purchase buttons
 });
 
 // display instructions
@@ -80,8 +80,4 @@ function closeShop() {
     // empty info section
     info.empty();
   }
-}
-
-function buy(item) {
-  console.log('purchased ' + item);
 }

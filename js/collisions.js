@@ -5,7 +5,9 @@ function directHit(ammo, unit) {
   }
   else {
     console.log('direct hit detected');
+    // give shooter credit and reward
     shooter.score += 1;
+    shooter.inventory.money += 100;
     // destroy attack object
     ammo.kill();
     // destroy target
