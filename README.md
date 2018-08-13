@@ -17,7 +17,7 @@ Basic instructions are included in the game.
 
 * destructable terrain
 * 3 ammo types
-* an inventory and shop
+* player inventories and a shop
 * 2-8 players
 * fall deaths and purchasable parachutes
 * 4 different maps
