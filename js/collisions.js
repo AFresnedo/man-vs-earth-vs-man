@@ -44,23 +44,29 @@ function bigDestruction(ammo, tile) {
   ammo.kill();
 }
 
+// TODO improve algorithm
 function massDestruction(ammo, tile) {
   var x = tile.x;
   var y = tile.y;
   console.log('origin of massDestruc is', tile);
   for (var i = 0; i < 4; i++) {
-    map.removeTile(x + i, y); // to the right
-    map.removeTile(x, y + i); // above
-    map.removeTile(x + i, y + i); // diagonal rightup
-    map.removeTile(x - i, y); // to the left
-    map.removeTile(x, y - i); // below
-    map.removeTile(x - i, y - i); // diagonal leftup
-    map.removeTile(x + i, y - i); // diagonal rightdown
-    map.removeTile(x - i, y + i); // diagonal leftdown
-    map.removeTile(x, y);
+    for (var j = 0; j < 4; j++) {
+      map.removeTile(x + i, y + j);
+      map.removeTile(x - i, y - j);
+      map.removeTile(x + i, y - j);
+      map.removeTile(x - i, y + j);
+    }
   }
   // explode ammo
   ammo.kill();
+}
+
+// TODO called by another function that destroys ammo
+function recursiveMassDestruction(tile, radius = 3) {
+  // destruction size is a radius of 3
+  // base case: origin tile
+  var baseTile = tile;
+  // call recursive in 6 directions?
 }
 
 function releaseChute(chute, tank) {

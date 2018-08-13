@@ -63,12 +63,10 @@ var menuState = {
     // create player objects
     for (var i = 0; i < playerCount; i++) {
       // TODO get player names
-      // TODO create inventory object
       // name, score, inventory, unit (null in this state)
       var player = new Player(i, 0, new Inventory(200), null);
       players[i] = player;
     }
-    // TODO break game when playerCount is not 2-8
     console.log('player count is', playerCount);
     console.log('players left is', playersLeft());
     game.state.start('loop');
