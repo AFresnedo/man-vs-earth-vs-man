@@ -312,7 +312,7 @@ var loopState = {
         }
         // else if player has a chute, but not showing, deploy it
         else if (player.inventory.parachute && !(player.unit.chute)) {
-          pullChute(player.unit.tank);
+          pullChute(player.unit);
         }
       }
     });

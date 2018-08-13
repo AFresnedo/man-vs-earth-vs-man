@@ -44,5 +44,5 @@ function pullChute(tank) {
   tank.chute = true;
   var parachute = parachutes.getFirstExists(false);
   parachute.reset(tank.position.x, 32);
-  parachute.body.gravity.y = STANDARD_FALL - 1;
+  parachute.body.gravity.y = STANDARD_FALL + 5;
 }
