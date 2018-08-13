@@ -304,7 +304,7 @@ var loopState = {
     // fall detection
     //
     players.forEach(function(player) {
-      if (!player.unit.chute && (player.unit.body.velocity.y > 10)) {
+      if (!player.inventory.parachute && (player.unit.body.velocity.y > 10)) {
         if (player.unit.chuteSafety < game.time.now) {
           // TODO wilheim scream
           player.unit.fallDeath = true;

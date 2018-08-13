@@ -65,7 +65,8 @@ function releaseChute(chute, tank) {
   // remove parachute from display
   chute.kill();
   // make tank vulnerable to fall damage
-  tank.chute = false;
+  var owner = getPlayer(tank);
+  owner.inventory.parachute = false;
   // provide "fall death" grace period
   tank.chuteSafety = game.time.now + 100;
 }
