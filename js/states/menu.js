@@ -61,7 +61,6 @@ var menuState = {
       levelSelect = 0;
     }
     // create player objects
-    // TODO preserve player objects throughout levels but not restarts
     for (var i = 0; i < playerCount; i++) {
       // TODO get player names
       // TODO create inventory object

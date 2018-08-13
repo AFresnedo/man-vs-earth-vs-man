@@ -33,3 +33,5 @@ var ammoList = ['standard', 'mega', 'ultra'];
 var levelSelect = 0;
 // oog-ui
 var showingShop = false;
+// TODO temporary spawn fix
+var zone;

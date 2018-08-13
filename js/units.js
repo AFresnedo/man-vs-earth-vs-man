@@ -1,11 +1,20 @@
 // on a timer, drops all tanks from ceiling
 function spawnUnits() {
+  // figure out drop zones to prevent overlap
+  zone = 700 / playerCount;
   console.log('dropping tanks');
+  var startZone = 0;
+  var endZone = 32;
   for (var i = 0; i < playerCount; i++) {
+    // give tanks an incremental spawn zone across X axis to prevent overlap
+    startZone = (zone * i);
+    endZone = (zone * (i + 1));
+    console.log('startZone is', startZone);
+    console.log('endZone is', endZone);
     console.log('dropping tank', i);
     // create new unit
     var unit = units.getFirstExists(false);
-    var randPosX = game.rnd.integerInRange(32, GAME_WIDTH - 32);
+    var randPosX = game.rnd.integerInRange(startZone, endZone);
     unit.reset(randPosX, 32 + 16);
     // TODO refactor parachutes somewhere else
     var parachute = parachutes.getFirstExists(false);
