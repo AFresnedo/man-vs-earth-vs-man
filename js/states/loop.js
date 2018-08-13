@@ -257,39 +257,46 @@ var loopState = {
       else {
         // ensure player has ammo
         console.log(checkAmmo(currentPlayer.ammo, currentPlayer));
-        // get shooter's ammo selection
-        var ammo = this.selectedAmmo;
-        // get shooter's power setting
-        ammo.bulletSpeed = this.power;
-        // update cooldown
-        this.fireCooldown = game.time.now + 500;
-        // set angle
-        // gameTurn, as the index, is used to separate each player's angle
-        console.log('fire angle is', players[gameTurn].angle);
-        ammo.fireAngle = players[gameTurn].angle;
-        // estimate turret position as pos
-        var posX = (currentPlayer.unit.x + TANK_X_OFFSET) +
-          (currentPlayer.angle / 10); // angle helps determine turret pos
-        // spawn shell from turret's pos
-        var pos = new Phaser.Rectangle(posX, currentPlayer.unit.y +
-            TANK_Y_OFFSET);
-        ammo.fireFrom = pos;
-        console.log('fire from', pos);
-        // fire!
-        console.log('fuego!');
-        ammo.fire();
-        // add animation to shell, if it was an ultraBomb
-        if (ammo === this.ultraBombs) {
-          var bombFired = ammo.bullets.getFirstExists(true);
-          console.log('ultraBomb fired:', bombFired);
-          bombFired.animations.play('ultraBomb', 15, true);
-          console.log('ultraBomb animation played');
+        if (checkAmmo(currentPlayer.ammo, currentPlayer)) {
+          // get shooter's ammo selection
+          var ammo = this.selectedAmmo;
+          // get shooter's power setting
+          ammo.bulletSpeed = this.power;
+          // update cooldown
+          this.fireCooldown = game.time.now + 500;
+          // set angle
+          // gameTurn, as the index, is used to separate each player's angle
+          console.log('fire angle is', players[gameTurn].angle);
+          ammo.fireAngle = players[gameTurn].angle;
+          // estimate turret position as pos
+          var posX = (currentPlayer.unit.x + TANK_X_OFFSET) +
+            (currentPlayer.angle / 10); // angle helps determine turret pos
+          // spawn shell from turret's pos
+          var pos = new Phaser.Rectangle(posX, currentPlayer.unit.y +
+              TANK_Y_OFFSET);
+          ammo.fireFrom = pos;
+          console.log('fire from', pos);
+          // fire!
+          console.log('fuego!');
+          ammo.fire();
+          // add animation to shell, if it was an ultraBomb
+          if (ammo === this.ultraBombs) {
+            var bombFired = ammo.bullets.getFirstExists(true);
+            console.log('ultraBomb fired:', bombFired);
+            bombFired.animations.play('ultraBomb', 15, true);
+            console.log('ultraBomb animation played');
+          }
+          // close inventory
+          closeShop();
+          // go to next turn
+          gameTurn = (gameTurn + 1) % playerCount;
+          console.log('turn updated to', gameTurn);
         }
-        // close inventory
-        closeShop();
-        // go to next turn
-        gameTurn = (gameTurn + 1) % playerCount;
-        console.log('turn updated to', gameTurn);
+        // no ammo, do not run shooting code
+        else {
+          this.fireCooldown = game.time.now + 500;
+          console.log('you are out of that ammo!');
+        }
       }
     }
 
