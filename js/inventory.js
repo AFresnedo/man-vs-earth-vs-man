@@ -46,3 +46,17 @@ function pullChute(tank) {
   parachute.reset(tank.position.x, 32);
   parachute.body.gravity.y = STANDARD_FALL + 5;
 }
+
+function useAmmo(ammo, player) {
+  switch (ammoList[ammo]) {
+    case 'standard':
+      player.inventory.standardShot--;
+      break;
+    case 'mega':
+      player.inventory.megaBomb--;
+      break;
+    case 'ultra':
+      player.inventory.ultraBomb--;
+      break;
+  }
+}

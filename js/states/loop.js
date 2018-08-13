@@ -117,6 +117,9 @@ var loopState = {
   },
 
   update: function() {
+    //
+    // game loop status
+    //
     // set game as active
     gameOn = true;
     // get the player whose turn it is
@@ -131,7 +134,6 @@ var loopState = {
       gameTurn = (gameTurn + 1) % playerCount;
       return;
     }
-
     //
     // display in-game-window UI for player
     //
@@ -279,6 +281,8 @@ var loopState = {
           // fire!
           console.log('fuego!');
           ammo.fire();
+          // subtract ammo
+          useAmmo(currentPlayer.ammo, currentPlayer);
           // add animation to shell, if it was an ultraBomb
           if (ammo === this.ultraBombs) {
             var bombFired = ammo.bullets.getFirstExists(true);
