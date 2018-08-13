@@ -43,8 +43,9 @@ function pullChute(tank) {
   // set condition that tank has a chute showing
   tank.chute = true;
   var parachute = parachutes.getFirstExists(false);
-  parachute.reset(tank.position.x, 32);
-  parachute.body.gravity.y = STANDARD_FALL + 5;
+  parachute.reset(tank.position.x, tank.position.y - 16);
+  parachute.body.velocity.y = tank.body.velocity.y;
+  parachute.body.gravity.y = STANDARD_FALL;
 }
 
 function useAmmo(ammo, player) {

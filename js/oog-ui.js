@@ -91,7 +91,18 @@ function closeShop() {
 }
 
 function buyChute() {
-  console.log('bought chute');
+  if (currentPlayer.inventory.money >= 100 &&
+      !currentPlayer.inventory.parachute) {
+    console.log('bought chute');
+    currentPlayer.inventory.money -= 100;
+    currentPlayer.inventory.parachute = true;
+  }
+  else if (currentPlayer.inventory.money >= 100) {
+    console.log('already have a chute');
+  }
+  else {
+    console.log('not enough money for chute');
+  }
 }
 function buyShell() {
   console.log('bought shell');
