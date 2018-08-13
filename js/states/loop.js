@@ -104,11 +104,11 @@ var loopState = {
     this.shells.bulletSpeed = -250;
     // megaBomb
     this.megaBombs = game.add.weapon(playerCount, 'megaBomb');
-    this.megaBombs.bulletGravity.y = 60;
+    this.megaBombs.bulletGravity.y = 100;
     this.megaBombs.bulletSpeed = -200;
     // ultraBomb
     this.ultraBombs = game.add.weapon(playerCount, 'ultraBomb');
-    this.ultraBombs.bulletGravity.y = 60;
+    this.ultraBombs.bulletGravity.y = 200;
     this.ultraBombs.bulletSpeed = -200;
     this.ultraBombs.bullets.forEach(function(ultraBomb) {
       ultraBomb.animations.add('ultraBomb');
